@@ -27,6 +27,8 @@
 		E61512332AA761740076CA05 /* OfertaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61512312AA761740076CA05 /* OfertaTableViewCell.swift */; };
 		E61512342AA761740076CA05 /* OfertaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E61512322AA761740076CA05 /* OfertaTableViewCell.xib */; };
 		E61512362AA762690076CA05 /* ViagemOfertaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61512352AA762690076CA05 /* ViagemOfertaViewModel.swift */; };
+		E6667D672AA7A4A200E2876D /* DetalheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6667D652AA7A4A200E2876D /* DetalheViewController.swift */; };
+		E6667D682AA7A4A200E2876D /* DetalheViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6667D662AA7A4A200E2876D /* DetalheViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		E61512312AA761740076CA05 /* OfertaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfertaTableViewCell.swift; sourceTree = "<group>"; };
 		E61512322AA761740076CA05 /* OfertaTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OfertaTableViewCell.xib; sourceTree = "<group>"; };
 		E61512352AA762690076CA05 /* ViagemOfertaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViagemOfertaViewModel.swift; sourceTree = "<group>"; };
+		E6667D652AA7A4A200E2876D /* DetalheViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalheViewController.swift; sourceTree = "<group>"; };
+		E6667D662AA7A4A200E2876D /* DetalheViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetalheViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,7 @@
 				E61512052AA615440076CA05 /* Assets.xcassets */,
 				E615121F2AA65CE00076CA05 /* Mock */,
 				E615120A2AA615440076CA05 /* Info.plist */,
+				E61512072AA615440076CA05 /* LaunchScreen.storyboard */,
 			);
 			path = Alura_Viagens;
 			sourceTree = "<group>";
@@ -118,8 +123,10 @@
 		E61512162AA648AD0076CA05 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E61512002AA615430076CA05 /* ViewController.swift */,
+				E61512022AA615430076CA05 /* Main.storyboard */,
+				E6667D642AA7A48600E2876D /* DetalhesViewController */,
 				E615121A2AA650F20076CA05 /* Cells */,
-				E61512192AA649560076CA05 /* Main */,
 				E61512172AA648C00076CA05 /* Header */,
 			);
 			path = View;
@@ -142,16 +149,6 @@
 				E61512352AA762690076CA05 /* ViagemOfertaViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		E61512192AA649560076CA05 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				E61512002AA615430076CA05 /* ViewController.swift */,
-				E61512022AA615430076CA05 /* Main.storyboard */,
-				E61512072AA615440076CA05 /* LaunchScreen.storyboard */,
-			);
-			path = Main;
 			sourceTree = "<group>";
 		};
 		E615121A2AA650F20076CA05 /* Cells */ = {
@@ -195,6 +192,15 @@
 				E61512322AA761740076CA05 /* OfertaTableViewCell.xib */,
 			);
 			path = Oferta;
+			sourceTree = "<group>";
+		};
+		E6667D642AA7A48600E2876D /* DetalhesViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E6667D652AA7A4A200E2876D /* DetalheViewController.swift */,
+				E6667D662AA7A4A200E2876D /* DetalheViewController.xib */,
+			);
+			path = DetalhesViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,6 +261,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6667D682AA7A4A200E2876D /* DetalheViewController.xib in Resources */,
 				E61512092AA615440076CA05 /* LaunchScreen.storyboard in Resources */,
 				E61512212AA65CF80076CA05 /* server-response.json in Resources */,
 				E61512112AA619860076CA05 /* HomeTableViewHeader.xib in Resources */,
@@ -284,6 +291,7 @@
 				E61512232AA65D160076CA05 /* DecodableData.swift in Sources */,
 				E61511FD2AA615430076CA05 /* AppDelegate.swift in Sources */,
 				E61511FF2AA615430076CA05 /* SceneDelegate.swift in Sources */,
+				E6667D672AA7A4A200E2876D /* DetalheViewController.swift in Sources */,
 				E615122B2AA65E840076CA05 /* ViagemDestaqueViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
