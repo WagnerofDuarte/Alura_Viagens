@@ -17,6 +17,12 @@ class ViewController: UIViewController {
         configuraTableView()
         view.backgroundColor = UIColor(red: 30.0/255.0, green: 59.0/255.0, blue: 119.0/255.0, alpha: 1)
     }
+    
+    func irParaDetalhes(_ viagem: Viagem?){
+        guard let viagemSelecionada = viagem else { return }
+        let detalheController = DetalhesViewController.instanciar(viagemSelecionada)
+        navigationController?.pushViewController(detalheController, animated: true)
+    }
 }
 
 //MARK: - Extension - Layout Configuration methods
@@ -60,6 +66,7 @@ extension ViewController: UITableViewDataSource {
             guard let celulaOferta = tableView.dequeueReusableCell(withIdentifier: "OfertaTableViewCell") as? OfertaTableViewCell else {
                 fatalError("error to create cell")
             }
+            celulaOferta.delegate = self
             celulaOferta.configuraCelula(viewModel?.viagens)
             return celulaOferta
             
@@ -73,8 +80,16 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detalheController = DetalheViewController(nibName: "DetalheViewController", bundle: nil)
-        navigationController?.pushViewController(detalheController, animated: true)
+        
+        let viewModel = sessaoDeViagens?[indexPath.section]
+        
+        switch viewModel?.tipo {
+        case .destaques, .internacionais:
+            let viagemSelecionada = viewModel?.viagens[indexPath.row]
+            irParaDetalhes(viagemSelecionada)
+        default:
+            break
+        }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -101,4 +116,10 @@ extension ViewController: UITableViewDelegate {
         return UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone ? 400 : 475
     }
     
+}
+
+extension ViewController: OfertaTableViewCellDelegate {
+    func didSelectedView(_ viagem: Viagem?) {
+        irParaDetalhes(viagem)
+    }
 }

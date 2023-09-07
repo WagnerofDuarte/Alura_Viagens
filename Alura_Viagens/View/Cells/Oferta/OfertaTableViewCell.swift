@@ -7,8 +7,12 @@
 
 import UIKit
 
-class OfertaTableViewCell: UITableViewCell {
+protocol OfertaTableViewCellDelegate: AnyObject{
+    func didSelectedView(_ viagem: Viagem?)
+}
 
+class OfertaTableViewCell: UITableViewCell {
+    
     // MARK: - IBOutlets
     @IBOutlet var viagemImages: [UIImageView]!
     @IBOutlet var tituloViagensLabels: [UILabel]!
@@ -17,16 +21,19 @@ class OfertaTableViewCell: UITableViewCell {
     @IBOutlet var precoLabels: [UILabel]!
     @IBOutlet var fundoViews: [UIView]!
     
-    //weak var delegate: OfertaTableViewCellDelegate?
+    //MARK: - Atributes
     private var viagens: [Viagem]?
+    weak var delegate: OfertaTableViewCellDelegate?
     
     // MARK: - Layout Methods
     func configuraCelula(_ viagens: [Viagem]?){
+        self.viagens = viagens
         guard let listaDeViagem = viagens else { return }
         for i in 0..<listaDeViagem.count  {
             setOutlets(i, viagem: listaDeViagem[i])
         }
         fundoViews.forEach{ viewAtual in
+            viewAtual.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didSelectedView(_:))))
             viewAtual.addSombra()
         }
     }
@@ -47,6 +54,16 @@ class OfertaTableViewCell: UITableViewCell {
         
         let precoOutlet = precoLabels[index]
         precoOutlet.text = "R$ \(viagem.preco)"
+    }
+    
+    @objc func didSelectedView(_ gesture: UIGestureRecognizer){
+        
+        if let selectedView = gesture.view  {
+            let viagemSelecionada = viagens?[selectedView.tag]
+            delegate?.didSelectedView(viagemSelecionada)
+        }
+        
+        
     }
     
 }
