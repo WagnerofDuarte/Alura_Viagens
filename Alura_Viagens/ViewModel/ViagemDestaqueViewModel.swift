@@ -9,6 +9,8 @@ import Foundation
 
 class ViagemDestaqueViewModel: ViagemViewModel {
     
+    //MARK: - Atributes
+    
     var tituloSessao: String {
         return "Destaques"
     }
@@ -22,6 +24,8 @@ class ViagemDestaqueViewModel: ViagemViewModel {
     var numeroDeLinhas: Int {
         return viagens.count
     }
+    
+    //MARK: - Inicializer
     
     init(_ viagens: [Viagem]){
         self.viagens = viagens

@@ -8,6 +8,7 @@
 import Foundation
 
 struct Viagem: Codable {
+    
     var id: Int
     var titulo: String
     var asset: String

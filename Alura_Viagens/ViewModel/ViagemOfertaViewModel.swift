@@ -9,6 +9,8 @@ import Foundation
 
 class ViagemOfertaViewModel: ViagemViewModel {
     
+    //MARK: - Atributes
+    
     var tituloSessao: String {
         return "Ofertas"
     }
@@ -23,7 +25,7 @@ class ViagemOfertaViewModel: ViagemViewModel {
         return 1
     }
     
-    //MARK: - Inicializador
+    //MARK: - Inicializer
     
     init(_ viagens: [Viagem]) {
         self.viagens = viagens

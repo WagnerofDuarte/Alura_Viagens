@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     //MARK: - IBOutlets
     @IBOutlet weak var viagensTableView: UITableView!
     
+    //MARK: - Layout Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configuraTableView()
