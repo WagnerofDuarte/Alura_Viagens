@@ -1,8 +1,26 @@
 //
 //  Coordinator.swift
-//  Alura_Viagens
+//  CoordinatorPattern
 //
-//  Created by Wagner Duarte on 21/09/23.
+//  Created by Wagner Duarte on 19/09/23.
 //
 
 import Foundation
+import UIKit
+
+enum Event {
+    case buttonTapped
+}
+
+protocol Coordinator {
+    
+    var navigationController: UINavigationController? { get set }
+    
+    func eventOccurred(with type: Event)
+    func start()
+}
+
+
+protocol Coordinating {
+    var coordinator: Coordinator? { get set }
+}

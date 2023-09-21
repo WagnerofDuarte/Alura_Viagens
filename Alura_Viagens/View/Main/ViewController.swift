@@ -7,7 +7,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, Coordinating {
+    
+    var coordinator: Coordinator?
     
     //MARK: - IBOutlets
     @IBOutlet weak var viagensTableView: UITableView!
