@@ -1,21 +1,8 @@
 //
 //  UIView+Extension.swift
-//  alura-viagens
+//  Alura_Viagens
 //
-//  Created by Ândriu Felipe Coelho on 30/05/21.
+//  Created by Wagner Duarte on 21/09/23.
 //
 
-import UIKit
-
-extension UIView {
-    func addSombra() {
-        layer.shadowColor = UIColor.lightGray.cgColor
-        layer.shadowOpacity = 1
-        layer.shadowOffset = .zero
-        layer.shadowRadius = 10
-        layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
-        layer.shouldRasterize = true
-        layer.rasterizationScale = UIScreen.main.scale
-        layer.cornerRadius = 10
-    }
-}
+import Foundation
