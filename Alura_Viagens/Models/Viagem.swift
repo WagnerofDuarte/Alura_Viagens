@@ -5,7 +5,7 @@
 //  Created by Ândriu Felipe Coelho on 07/02/21.
 //
 
-import Foundation
+import Foundation 
 
 struct Viagem: Codable {
     
