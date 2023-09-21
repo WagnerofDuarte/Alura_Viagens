@@ -23,12 +23,14 @@
 		E61512272AA65D290076CA05 /* Viagem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61512262AA65D290076CA05 /* Viagem.swift */; };
 		E61512292AA65D9D0076CA05 /* ViagemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61512282AA65D9D0076CA05 /* ViagemViewModel.swift */; };
 		E615122B2AA65E840076CA05 /* ViagemDestaqueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E615122A2AA65E840076CA05 /* ViagemDestaqueViewModel.swift */; };
-		E615122E2AA6760A0076CA05 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E615122D2AA6760A0076CA05 /* UIView+Extension.swift */; };
 		E61512332AA761740076CA05 /* OfertaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61512312AA761740076CA05 /* OfertaTableViewCell.swift */; };
 		E61512342AA761740076CA05 /* OfertaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E61512322AA761740076CA05 /* OfertaTableViewCell.xib */; };
 		E61512362AA762690076CA05 /* ViagemOfertaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61512352AA762690076CA05 /* ViagemOfertaViewModel.swift */; };
 		E6E8A9FA2AA92A9400828EC7 /* DetalhesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E8A9F82AA92A9400828EC7 /* DetalhesViewController.swift */; };
 		E6E8A9FB2AA92A9400828EC7 /* DetalhesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6E8A9F92AA92A9400828EC7 /* DetalhesViewController.xib */; };
+		E6F589452ABCBA5400B52849 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F589442ABCBA5400B52849 /* UIView+Extension.swift */; };
+		E6F5894A2ABCBB3400B52849 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F589482ABCBB3400B52849 /* MainCoordinator.swift */; };
+		E6F5894B2ABCBB3400B52849 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F589492ABCBB3400B52849 /* Coordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,12 +52,14 @@
 		E61512262AA65D290076CA05 /* Viagem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Viagem.swift; sourceTree = "<group>"; };
 		E61512282AA65D9D0076CA05 /* ViagemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViagemViewModel.swift; sourceTree = "<group>"; };
 		E615122A2AA65E840076CA05 /* ViagemDestaqueViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViagemDestaqueViewModel.swift; sourceTree = "<group>"; };
-		E615122D2AA6760A0076CA05 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		E61512312AA761740076CA05 /* OfertaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfertaTableViewCell.swift; sourceTree = "<group>"; };
 		E61512322AA761740076CA05 /* OfertaTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OfertaTableViewCell.xib; sourceTree = "<group>"; };
 		E61512352AA762690076CA05 /* ViagemOfertaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViagemOfertaViewModel.swift; sourceTree = "<group>"; };
 		E6E8A9F82AA92A9400828EC7 /* DetalhesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalhesViewController.swift; sourceTree = "<group>"; };
 		E6E8A9F92AA92A9400828EC7 /* DetalhesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetalhesViewController.xib; sourceTree = "<group>"; };
+		E6F589442ABCBA5400B52849 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		E6F589482ABCBB3400B52849 /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		E6F589492ABCBB3400B52849 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +85,6 @@
 		E61511F02AA615430076CA05 = {
 			isa = PBXGroup;
 			children = (
-				E615122C2AA675F70076CA05 /* Extensions */,
 				E61511FB2AA615430076CA05 /* Alura_Viagens */,
 				E61511FA2AA615430076CA05 /* Products */,
 			);
@@ -98,12 +101,14 @@
 		E61511FB2AA615430076CA05 /* Alura_Viagens */ = {
 			isa = PBXGroup;
 			children = (
+				E6F589472ABCBB3400B52849 /* Coordinators */,
 				E61512152AA6489F0076CA05 /* Models */,
 				E61512162AA648AD0076CA05 /* View */,
 				E61512182AA6491E0076CA05 /* ViewModel */,
 				E61512142AA648860076CA05 /* AppDelegate */,
-				E61512052AA615440076CA05 /* Assets.xcassets */,
+				E615122C2AA675F70076CA05 /* Extensions */,
 				E615121F2AA65CE00076CA05 /* Mock */,
+				E61512052AA615440076CA05 /* Assets.xcassets */,
 				E615120A2AA615440076CA05 /* Info.plist */,
 				E61512072AA615440076CA05 /* LaunchScreen.storyboard */,
 			);
@@ -179,9 +184,10 @@
 		E615122C2AA675F70076CA05 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				E615122D2AA6760A0076CA05 /* UIView+Extension.swift */,
+				E6F589442ABCBA5400B52849 /* UIView+Extension.swift */,
 			);
-			path = Extensions;
+			name = Extensions;
+			path = ../Extensions;
 			sourceTree = "<group>";
 		};
 		E615122F2AA761350076CA05 /* Destaques */ = {
@@ -210,6 +216,16 @@
 			);
 			path = DetalhesViewController;
 			sourceTree = "<group>";
+		};
+		E6F589472ABCBB3400B52849 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				E6F589482ABCBB3400B52849 /* MainCoordinator.swift */,
+				E6F589492ABCBB3400B52849 /* Coordinator.swift */,
+			);
+			name = Coordinators;
+			path = Alura_Viagens/Coordinators;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -287,9 +303,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6F5894B2ABCBB3400B52849 /* Coordinator.swift in Sources */,
 				E6E8A9FA2AA92A9400828EC7 /* DetalhesViewController.swift in Sources */,
-				E615122E2AA6760A0076CA05 /* UIView+Extension.swift in Sources */,
 				E61512272AA65D290076CA05 /* Viagem.swift in Sources */,
+				E6F589452ABCBA5400B52849 /* UIView+Extension.swift in Sources */,
 				E61512012AA615430076CA05 /* ViewController.swift in Sources */,
 				E615121D2AA6513F0076CA05 /* ViagemTableViewCell.swift in Sources */,
 				E61512362AA762690076CA05 /* ViagemOfertaViewModel.swift in Sources */,
@@ -300,6 +317,7 @@
 				E61512232AA65D160076CA05 /* DecodableData.swift in Sources */,
 				E61511FD2AA615430076CA05 /* AppDelegate.swift in Sources */,
 				E61511FF2AA615430076CA05 /* SceneDelegate.swift in Sources */,
+				E6F5894A2ABCBB3400B52849 /* MainCoordinator.swift in Sources */,
 				E615122B2AA65E840076CA05 /* ViagemDestaqueViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
