@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViagemTableViewCell: UITableViewCell, Coordinating {
+class DestaquesViagemTableViewCell: UITableViewCell, Coordinating {
     
     //MARK: - Atributes
     var coordinator: Coordinator?

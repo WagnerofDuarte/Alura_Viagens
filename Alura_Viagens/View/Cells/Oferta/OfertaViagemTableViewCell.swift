@@ -7,7 +7,7 @@
 
 import UIKit
 
-class OfertaTableViewCell: UITableViewCell, Coordinating {
+class OfertaViagemTableViewCell: UITableViewCell, Coordinating {
     
     //MARK: - Atributes
     private var viagens: [Viagem]?
