@@ -31,6 +31,10 @@
 		E6F589452ABCBA5400B52849 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F589442ABCBA5400B52849 /* UIView+Extension.swift */; };
 		E6F5894A2ABCBB3400B52849 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F589482ABCBB3400B52849 /* MainCoordinator.swift */; };
 		E6F5894B2ABCBB3400B52849 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F589492ABCBB3400B52849 /* Coordinator.swift */; };
+		E6F5894E2ABCC38C00B52849 /* Main2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F5894C2ABCC38C00B52849 /* Main2.swift */; };
+		E6F5894F2ABCC38C00B52849 /* Main2.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6F5894D2ABCC38C00B52849 /* Main2.xib */; };
+		E6F589512ABE19FA00B52849 /* DetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F589502ABE19FA00B52849 /* DetailsCoordinator.swift */; };
+		E6F589532ABE353000B52849 /* Duvidas.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F589522ABE353000B52849 /* Duvidas.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +64,10 @@
 		E6F589442ABCBA5400B52849 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		E6F589482ABCBB3400B52849 /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		E6F589492ABCBB3400B52849 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		E6F5894C2ABCC38C00B52849 /* Main2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main2.swift; sourceTree = "<group>"; };
+		E6F5894D2ABCC38C00B52849 /* Main2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Main2.xib; sourceTree = "<group>"; };
+		E6F589502ABE19FA00B52849 /* DetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsCoordinator.swift; sourceTree = "<group>"; };
+		E6F589522ABE353000B52849 /* Duvidas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Duvidas.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +86,8 @@
 			children = (
 				E61512002AA615430076CA05 /* ViewController.swift */,
 				E61512022AA615430076CA05 /* Main.storyboard */,
+				E6F5894C2ABCC38C00B52849 /* Main2.swift */,
+				E6F5894D2ABCC38C00B52849 /* Main2.xib */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -85,6 +95,7 @@
 		E61511F02AA615430076CA05 = {
 			isa = PBXGroup;
 			children = (
+				E6F589522ABE353000B52849 /* Duvidas.swift */,
 				E61511FB2AA615430076CA05 /* Alura_Viagens */,
 				E61511FA2AA615430076CA05 /* Products */,
 			);
@@ -222,6 +233,7 @@
 			children = (
 				E6F589482ABCBB3400B52849 /* MainCoordinator.swift */,
 				E6F589492ABCBB3400B52849 /* Coordinator.swift */,
+				E6F589502ABE19FA00B52849 /* DetailsCoordinator.swift */,
 			);
 			name = Coordinators;
 			path = Alura_Viagens/Coordinators;
@@ -292,6 +304,7 @@
 				E6E8A9FB2AA92A9400828EC7 /* DetalhesViewController.xib in Resources */,
 				E61512042AA615430076CA05 /* Main.storyboard in Resources */,
 				E615121E2AA6513F0076CA05 /* ViagemTableViewCell.xib in Resources */,
+				E6F5894F2ABCC38C00B52849 /* Main2.xib in Resources */,
 				E61512342AA761740076CA05 /* OfertaTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,8 +320,11 @@
 				E6E8A9FA2AA92A9400828EC7 /* DetalhesViewController.swift in Sources */,
 				E61512272AA65D290076CA05 /* Viagem.swift in Sources */,
 				E6F589452ABCBA5400B52849 /* UIView+Extension.swift in Sources */,
+				E6F5894E2ABCC38C00B52849 /* Main2.swift in Sources */,
 				E61512012AA615430076CA05 /* ViewController.swift in Sources */,
+				E6F589532ABE353000B52849 /* Duvidas.swift in Sources */,
 				E615121D2AA6513F0076CA05 /* ViagemTableViewCell.swift in Sources */,
+				E6F589512ABE19FA00B52849 /* DetailsCoordinator.swift in Sources */,
 				E61512362AA762690076CA05 /* ViagemOfertaViewModel.swift in Sources */,
 				E61512332AA761740076CA05 /* OfertaTableViewCell.swift in Sources */,
 				E61512292AA65D9D0076CA05 /* ViagemViewModel.swift in Sources */,

@@ -7,7 +7,9 @@
 
 import UIKit
 
-class DetalhesViewController: UIViewController {
+class DetalhesViewController: UIViewController, Coordinating {
+    
+    var coordinator: Coordinator?
     
     //MARK: - IBOutlets
     @IBOutlet weak var tituloViagemLabel: UILabel!
@@ -21,7 +23,7 @@ class DetalhesViewController: UIViewController {
     var viagem: Viagem?
     
     //MARK: - View Life cycle
-    class func instanciar(_ viagem: Viagem) -> DetalhesViewController {
+    class func instanciar(_ viagem: Viagem?) -> DetalhesViewController {
         let detalhesViewController = DetalhesViewController(nibName: String(describing: self), bundle: nil)
         detalhesViewController.viagem = viagem
         return detalhesViewController
@@ -52,8 +54,7 @@ class DetalhesViewController: UIViewController {
     
     //MARK: - Actions
     @IBAction func backButton(_ sender: UIButton) {
-        print("teste")
-        navigationController?.popViewController(animated: true)
+        coordinator?.end()
     }
     
 }

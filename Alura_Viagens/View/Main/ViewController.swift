@@ -48,7 +48,7 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        sessaoDeViagens?[section].numeroDeLinhas ?? 0
+        return sessaoDeViagens?[section].numeroDeLinhas ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -112,7 +112,7 @@ extension ViewController: UITableViewDelegate {
         if section == 0 {
             return 300
         }
-        return 0
+        return 300
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

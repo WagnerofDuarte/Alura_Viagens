@@ -7,23 +7,119 @@
 
 import UIKit
 
-class Main2: UIViewController {
-
+class Main2: UIViewController, Coordinating {
+   
+    //MARK: Atributtes
+    var coordinator: Coordinator?
+    
+    @IBOutlet weak var viagensTableView: UITableView!
+    
+    // MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        view.backgroundColor = UIColor(red: 30.0/255.0, green: 59.0/255.0, blue: 119.0/255.0, alpha: 1)
+        setUpViagensTableView()
     }
+}
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+//MARK: Layout Config
+extension Main2 {
+    
+    func setUpViagensTableView(){
+        viagensTableView.delegate = self
+        viagensTableView.dataSource = self
+        viagensTableView.register(UINib(nibName: "ViagemTableViewCell", bundle: nil),forCellReuseIdentifier: "ViagemTableViewCell")
+        viagensTableView.register(UINib(nibName: "OfertaTableViewCell", bundle: nil), forCellReuseIdentifier: "OfertaTableViewCell")
     }
-    */
+}
 
+//MARK: UITableViewDataSource
+extension Main2: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sessaoDeViagens?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return sessaoDeViagens?[section].numeroDeLinhas ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let viewModel = sessaoDeViagens?[indexPath.section] as? ViagemViewModel else {
+            fatalError("error to create cell")
+        }
+        
+        switch viewModel.tipo {
+        case .destaques:
+            
+            guard let celulaDestaques = tableView.dequeueReusableCell(withIdentifier: "ViagemTableViewCell") as? ViagemTableViewCell else {
+                fatalError("error to create cell")
+            }
+            
+            celulaDestaques.configuraCelula(viewModel.viagens[indexPath.row])
+            
+            return celulaDestaques
+            
+        case .ofertas:
+            
+            guard let celulaOfertas = tableView.dequeueReusableCell(withIdentifier: "OfertaTableViewCell") as? OfertaTableViewCell else {
+                fatalError("error to create oferta cell")
+            }
+            
+            celulaOfertas.configuraCelula(viewModel.viagens)
+            
+            return celulaOfertas
+        
+        default:
+            return UITableViewCell()
+            
+        }
+    }
+}
+
+//MARK: UITableViewDelegate
+extension Main2: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == 0 {
+            
+            let headerView = Bundle.main.loadNibNamed("HomeTableViewHeader", owner: self, options: nil)?.first as? HomeTableViewHeader
+            headerView?.configuraView()
+            
+            return headerView
+            
+        }
+        return nil
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 300
+        }
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone ? 400 : 475
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        guard let viewModel = sessaoDeViagens?[indexPath.section] as? ViagemViewModel else {
+            fatalError("error to create cell")
+        }
+        
+        switch viewModel.tipo {
+        case .destaques, .internacionais:
+            
+            let viagemSelecionada = viewModel.viagens[indexPath.row]
+            let detailsCoordinator = DetailsCoordinator(childCoordinators: [], navigationController: coordinator?.navigationController ?? UINavigationController(), viagem: viagemSelecionada, parentCoordinators: self.coordinator)
+            coordinator?.eventOccurred(with: .goToTripDetailsScreen, of: detailsCoordinator)
+                    
+        default:
+            break
+        }
+        
+    }
 }
