@@ -25,7 +25,6 @@ class MainCoordinator: Coordinator {
         switch type {
         case .goToTripDetailsScreen:
             childCoordinators.append(nextCoordinator)
-            print(childCoordinators)
             childCoordinators.last?.start()
         }
     }

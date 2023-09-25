@@ -57,7 +57,7 @@ extension Main2: UITableViewDataSource {
                 fatalError("error to create cell")
             }
             
-            celulaDestaques.configuraCelula(viewModel.viagens[indexPath.row])
+            celulaDestaques.configuraCelula(viewModel.viagens[indexPath.row], coordinator: self.coordinator)
             
             return celulaDestaques
             
@@ -67,7 +67,7 @@ extension Main2: UITableViewDataSource {
                 fatalError("error to create oferta cell")
             }
             
-            celulaOfertas.configuraCelula(viewModel.viagens)
+            celulaOfertas.configuraCelula(viewModel.viagens, coordinator: self.coordinator)
             
             return celulaOfertas
         
@@ -106,7 +106,7 @@ extension Main2: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        guard let viewModel = sessaoDeViagens?[indexPath.section] as? ViagemViewModel else {
+        /*guard let viewModel = sessaoDeViagens?[indexPath.section] as? ViagemViewModel else {
             fatalError("error to create cell")
         }
         
@@ -116,10 +116,8 @@ extension Main2: UITableViewDelegate {
             let viagemSelecionada = viewModel.viagens[indexPath.row]
             let detailsCoordinator = DetailsCoordinator(childCoordinators: [], navigationController: coordinator?.navigationController ?? UINavigationController(), viagem: viagemSelecionada, parentCoordinators: self.coordinator)
             coordinator?.eventOccurred(with: .goToTripDetailsScreen, of: detailsCoordinator)
-                    
         default:
             break
-        }
-        
+        }*/
     }
 }

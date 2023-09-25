@@ -7,7 +7,11 @@
 
 import UIKit
 
-class ViagemTableViewCell: UITableViewCell {
+class ViagemTableViewCell: UITableViewCell, Coordinating {
+    
+    //MARK: - Atributes
+    var coordinator: Coordinator?
+    var viagem: Viagem?
     
     // MARK: - IBOutlets
     @IBOutlet weak var backgroundViewCell: UIView!
@@ -19,7 +23,11 @@ class ViagemTableViewCell: UITableViewCell {
     @IBOutlet weak var precoViagemLabel: UILabel!
     @IBOutlet weak var statusCancelamentoViagemLabel: UILabel!
     
-    func configuraCelula(_ viagem: Viagem?) {
+    
+    func configuraCelula(_ viagem: Viagem?, coordinator: Coordinator?) {
+        
+        self.coordinator = coordinator
+        self.viagem = viagem
         
         viagemImage.image = UIImage(named: viagem?.asset ?? "")
         tituloViagemLabel.text = viagem?.titulo ?? ""
@@ -36,9 +44,24 @@ class ViagemTableViewCell: UITableViewCell {
             diariaViagemLabel.text = "\(numeroDeDias) \(diarias) - \(numeroDeHospedes) \(hospedes) "
         }
         
+        backgroundViewCell.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didSelectedView(_:))))
+        
         DispatchQueue.main.async {
             self.backgroundViewCell.addSombra()
         }
         
     }
+    
+    @objc func didSelectedView(_ gesture: UIGestureRecognizer){
+        
+        if let selectedView = gesture.view  {
+            
+            guard let viagemSelecionada = viagem else { return }
+            
+            let detailsCoordinator = DetailsCoordinator(childCoordinators: [], navigationController: coordinator?.navigationController ?? UINavigationController(), viagem: viagemSelecionada, parentCoordinators: self.coordinator)
+            
+            coordinator?.eventOccurred(with: .goToTripDetailsScreen, of: detailsCoordinator)
+        }
+    }
+    
 }

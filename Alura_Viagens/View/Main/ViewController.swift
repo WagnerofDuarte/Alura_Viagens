@@ -5,7 +5,7 @@
 //  Created by Wagner Duarte on 04/09/23.
 //
 
-import UIKit
+/*import UIKit
 
 class ViewController: UIViewController, Coordinating {
     
@@ -70,7 +70,7 @@ extension ViewController: UITableViewDataSource {
                 fatalError("error to create cell")
             }
             celulaOferta.delegate = self
-            celulaOferta.configuraCelula(viewModel?.viagens)
+            //celulaOferta.configuraCelula(viewModel?.viagens)
             return celulaOferta
             
         default:
@@ -126,3 +126,4 @@ extension ViewController: OfertaTableViewCellDelegate {
         irParaDetalhes(viagem)
     }
 }
+*/
