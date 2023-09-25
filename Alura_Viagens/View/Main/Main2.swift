@@ -28,8 +28,8 @@ extension Main2 {
     func setUpViagensTableView(){
         viagensTableView.delegate = self
         viagensTableView.dataSource = self
-        viagensTableView.register(UINib(nibName: "ViagemTableViewCell", bundle: nil),forCellReuseIdentifier: "ViagemTableViewCell")
-        viagensTableView.register(UINib(nibName: "OfertaTableViewCell", bundle: nil), forCellReuseIdentifier: "OfertaTableViewCell")
+        viagensTableView.register(UINib(nibName: "DestaquesViagemTableViewCell", bundle: nil),forCellReuseIdentifier: "DestaquesViagemTableViewCell")
+        viagensTableView.register(UINib(nibName: "OfertaViagemTableViewCell", bundle: nil), forCellReuseIdentifier: "OfertaViagemTableViewCell")
     }
 }
 
@@ -53,7 +53,7 @@ extension Main2: UITableViewDataSource {
         switch viewModel.tipo {
         case .destaques:
             
-            guard let celulaDestaques = tableView.dequeueReusableCell(withIdentifier: "ViagemTableViewCell") as? ViagemTableViewCell else {
+            guard let celulaDestaques = tableView.dequeueReusableCell(withIdentifier: "DestaquesViagemTableViewCell") as? DestaquesViagemTableViewCell else {
                 fatalError("error to create cell")
             }
             
@@ -63,7 +63,7 @@ extension Main2: UITableViewDataSource {
             
         case .ofertas:
             
-            guard let celulaOfertas = tableView.dequeueReusableCell(withIdentifier: "OfertaTableViewCell") as? OfertaTableViewCell else {
+            guard let celulaOfertas = tableView.dequeueReusableCell(withIdentifier: "OfertaViagemTableViewCell") as? OfertaViagemTableViewCell else {
                 fatalError("error to create oferta cell")
             }
             
