@@ -23,9 +23,7 @@ class DetailsCoordinator: Coordinator {
         self.parentCoordinators = parentCoordinators
     }
     
-    func eventOccurred(with type: Event, of coordinator: Coordinator) {
-        
-    }
+    func eventOccurred(with type: Event, of coordinator: Coordinator) {}
     
     func start() {
         let vc = DetalhesViewController.instanciar(viagem)
@@ -35,7 +33,7 @@ class DetailsCoordinator: Coordinator {
     }
     
     func end() {
-        let lastChildren = parentCoordinators?.childCoordinators.popLast()
+        parentCoordinators?.childCoordinators.popLast()
         navigationController.popViewController(animated: true)
     }
 }

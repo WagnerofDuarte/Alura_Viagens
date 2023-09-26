@@ -9,6 +9,8 @@ import UIKit
 
 class DetalhesViewController: UIViewController, Coordinating {
     
+    //MARK: - Atributos
+    var viagem: Viagem?
     var coordinator: Coordinator?
     
     //MARK: - IBOutlets
@@ -19,16 +21,14 @@ class DetalhesViewController: UIViewController, Coordinating {
     @IBOutlet weak var precoSemDescontoViagemLabel: UILabel!
     @IBOutlet weak var precoViagemLabel: UILabel!
     
-    //MARK: - Atributos
-    var viagem: Viagem?
-    
-    //MARK: - View Life cycle
+    //MARK: - Initializer
     class func instanciar(_ viagem: Viagem?) -> DetalhesViewController {
         let detalhesViewController = DetalhesViewController(nibName: String(describing: self), bundle: nil)
         detalhesViewController.viagem = viagem
         return detalhesViewController
     }
     
+    //MARK: - View Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configuraView()
@@ -36,6 +36,7 @@ class DetalhesViewController: UIViewController, Coordinating {
     
     //MARK: - Layout Configuration
     func configuraView(){
+        
         viagemImage.image = UIImage(named: viagem?.asset ?? "")
         tituloViagemLabel.text = viagem?.titulo ?? ""
         subtituloViagemLabel.text = viagem?.subtitulo ?? ""
@@ -56,5 +57,10 @@ class DetalhesViewController: UIViewController, Coordinating {
     @IBAction func backButton(_ sender: UIButton) {
         coordinator?.end()
     }
+    
+    @IBAction func continueButton(_ sender: UIButton) {
+        coordinator?.end()
+    }
+    
     
 }

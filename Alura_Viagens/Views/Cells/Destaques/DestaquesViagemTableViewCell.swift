@@ -23,7 +23,7 @@ class DestaquesViagemTableViewCell: UITableViewCell, Coordinating {
     @IBOutlet weak var precoViagemLabel: UILabel!
     @IBOutlet weak var statusCancelamentoViagemLabel: UILabel!
     
-    
+    //MARK: - Layout Configuration
     func configuraCelula(_ viagem: Viagem?, coordinator: Coordinator?) {
         
         self.coordinator = coordinator
@@ -38,7 +38,7 @@ class DestaquesViagemTableViewCell: UITableViewCell, Coordinating {
         atributoString.addAttribute(NSAttributedString.Key.strikethroughStyle,value: 1, range: NSMakeRange(0, atributoString.length))
         precoSemDescontoLabel.attributedText = atributoString
         
-        if let numeroDeDias = viagem?.diaria, let numeroDeHospedes = viagem? .hospedes {
+        if let numeroDeDias = viagem?.diaria, let numeroDeHospedes = viagem?.hospedes {
             let diarias = numeroDeDias == 1 ? "Diária" : "Diárias"
             let hospedes = numeroDeHospedes == 1 ? "Pessoa" : "Pessoas"
             diariaViagemLabel.text = "\(numeroDeDias) \(diarias) - \(numeroDeHospedes) \(hospedes) "
@@ -52,16 +52,15 @@ class DestaquesViagemTableViewCell: UITableViewCell, Coordinating {
         
     }
     
+    //MARK: - Actions
     @objc func didSelectedView(_ gesture: UIGestureRecognizer){
         
-        if let selectedView = gesture.view  {
-            
-            guard let viagemSelecionada = viagem else { return }
-            
-            let detailsCoordinator = DetailsCoordinator(childCoordinators: [], navigationController: coordinator?.navigationController ?? UINavigationController(), viagem: viagemSelecionada, parentCoordinators: self.coordinator)
-            
-            coordinator?.eventOccurred(with: .goToTripDetailsScreen, of: detailsCoordinator)
-        }
+        guard let viagemSelecionada = viagem else { return }
+        
+        let detailsCoordinator = DetailsCoordinator(childCoordinators: [], navigationController: coordinator?.navigationController ?? UINavigationController(), viagem: viagemSelecionada, parentCoordinators: self.coordinator)
+        
+        coordinator?.eventOccurred(with: .goToTripDetailsScreen, of: detailsCoordinator)
+        
     }
     
 }

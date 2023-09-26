@@ -55,6 +55,7 @@ class OfertaViagemTableViewCell: UITableViewCell, Coordinating {
         precoOutlet.text = "R$ \(viagem.preco)"
     }
     
+    //MARK: Actions
     @objc func didSelectedView(_ gesture: UIGestureRecognizer){
         
         if let selectedView = gesture.view  {

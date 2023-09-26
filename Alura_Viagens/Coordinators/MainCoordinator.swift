@@ -11,7 +11,7 @@ import UIKit
 class MainCoordinator: Coordinator {
     
     var parentCoordinators: Coordinator?
-    var childCoordinators: [Coordinator]
+    var childCoordinators: [Coordinator] //???
     var navigationController: UINavigationController
     
     
@@ -25,12 +25,12 @@ class MainCoordinator: Coordinator {
         switch type {
         case .goToTripDetailsScreen:
             childCoordinators.append(nextCoordinator)
-            childCoordinators.last?.start()
+            nextCoordinator.start()
         }
     }
     
     func start() {
-        let vc = Main2()
+        let vc = HomeViewController()
         vc.coordinator = self
         navigationController.isNavigationBarHidden = true
         navigationController.setViewControllers([vc], animated: false)

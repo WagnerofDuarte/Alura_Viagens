@@ -16,7 +16,7 @@ class HomeTableViewHeader: UIView {
     @IBOutlet weak var bannerView: UIView!
     
     //MARK: - Layout Configuration
-    func configuraView() {
+    func configuraHeader() {
         
         headerView.backgroundColor = UIColor(red: 30/255, green: 59/255, blue: 119/255, alpha: 1)
         headerView.layer.cornerRadius = UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone ? 500 : 200
