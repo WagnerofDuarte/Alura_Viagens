@@ -7,7 +7,11 @@
 
 import UIKit
 
-class DetalhesViewController: UIViewController {
+class DetalhesViewController: UIViewController, Coordinating {
+    
+    //MARK: - Atributos
+    var viagem: Viagem?
+    var coordinator: Coordinator?
     
     //MARK: - IBOutlets
     @IBOutlet weak var tituloViagemLabel: UILabel!
@@ -17,16 +21,14 @@ class DetalhesViewController: UIViewController {
     @IBOutlet weak var precoSemDescontoViagemLabel: UILabel!
     @IBOutlet weak var precoViagemLabel: UILabel!
     
-    //MARK: - Atributos
-    var viagem: Viagem?
-    
-    //MARK: - View Life cycle
-    class func instanciar(_ viagem: Viagem) -> DetalhesViewController {
+    //MARK: - Initializer
+    class func instanciar(_ viagem: Viagem?) -> DetalhesViewController {
         let detalhesViewController = DetalhesViewController(nibName: String(describing: self), bundle: nil)
         detalhesViewController.viagem = viagem
         return detalhesViewController
     }
     
+    //MARK: - View Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configuraView()
@@ -34,6 +36,7 @@ class DetalhesViewController: UIViewController {
     
     //MARK: - Layout Configuration
     func configuraView(){
+        
         viagemImage.image = UIImage(named: viagem?.asset ?? "")
         tituloViagemLabel.text = viagem?.titulo ?? ""
         subtituloViagemLabel.text = viagem?.subtitulo ?? ""
@@ -52,8 +55,12 @@ class DetalhesViewController: UIViewController {
     
     //MARK: - Actions
     @IBAction func backButton(_ sender: UIButton) {
-        print("teste")
-        navigationController?.popViewController(animated: true)
+        coordinator?.end()
     }
+    
+    @IBAction func continueButton(_ sender: UIButton) {
+        coordinator?.end()
+    }
+    
     
 }

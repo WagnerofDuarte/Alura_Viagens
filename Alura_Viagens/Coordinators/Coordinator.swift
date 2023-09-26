@@ -9,17 +9,19 @@ import Foundation
 import UIKit
 
 enum Event {
-    case buttonTapped
+    case goToTripDetailsScreen
 }
 
 protocol Coordinator {
     
-    var navigationController: UINavigationController? { get set }
+    var navigationController: UINavigationController { get set }
+    var parentCoordinators: Coordinator? { get set }
+    var childCoordinators: [Coordinator] { get set }
     
-    func eventOccurred(with type: Event)
+    func eventOccurred(with type: Event, of nextCoordinator: Coordinator)
     func start()
+    func end()
 }
-
 
 protocol Coordinating {
     var coordinator: Coordinator? { get set }

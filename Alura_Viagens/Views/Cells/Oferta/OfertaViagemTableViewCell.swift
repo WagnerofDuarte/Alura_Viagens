@@ -7,11 +7,11 @@
 
 import UIKit
 
-protocol OfertaTableViewCellDelegate: AnyObject{
-    func didSelectedView(_ viagem: Viagem?)
-}
-
-class OfertaTableViewCell: UITableViewCell {
+class OfertaViagemTableViewCell: UITableViewCell, Coordinating {
+    
+    //MARK: - Atributes
+    private var viagens: [Viagem]?
+    var coordinator: Coordinator?
     
     // MARK: - IBOutlets
     @IBOutlet var viagemImages: [UIImageView]!
@@ -21,13 +21,12 @@ class OfertaTableViewCell: UITableViewCell {
     @IBOutlet var precoLabels: [UILabel]!
     @IBOutlet var fundoViews: [UIView]!
     
-    //MARK: - Atributes
-    private var viagens: [Viagem]?
-    weak var delegate: OfertaTableViewCellDelegate?
-    
     // MARK: - Layout Methods
-    func configuraCelula(_ viagens: [Viagem]?){
+    func configuraCelula(_ viagens: [Viagem]?, coordinator: Coordinator?){
+        
+        self.coordinator = coordinator
         self.viagens = viagens
+        
         guard let listaDeViagem = viagens else { return }
         for i in 0..<listaDeViagem.count  {
             setOutlets(i, viagem: listaDeViagem[i])
@@ -56,14 +55,16 @@ class OfertaTableViewCell: UITableViewCell {
         precoOutlet.text = "R$ \(viagem.preco)"
     }
     
+    //MARK: Actions
     @objc func didSelectedView(_ gesture: UIGestureRecognizer){
         
         if let selectedView = gesture.view  {
-            let viagemSelecionada = viagens?[selectedView.tag]
-            delegate?.didSelectedView(viagemSelecionada)
+            
+            guard let viagemSelecionada = viagens?[selectedView.tag] else { return }
+            
+            let detailsCoordinator = DetailsCoordinator(childCoordinators: [], navigationController: coordinator?.navigationController ?? UINavigationController(), viagem: viagemSelecionada, parentCoordinators: self.coordinator)
+            
+            coordinator?.eventOccurred(with: .goToTripDetailsScreen, of: detailsCoordinator)
         }
-        
-        
     }
-    
 }

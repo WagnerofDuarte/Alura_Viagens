@@ -10,15 +10,31 @@ import UIKit
 
 class MainCoordinator: Coordinator {
     
-    var navigationController: UINavigationController?
+    var parentCoordinators: Coordinator?
+    var childCoordinators: [Coordinator] //???
+    var navigationController: UINavigationController
     
-    func eventOccurred(with type: Event) {
-        
+    
+    init(childCoordinators: [Coordinator], navigationController: UINavigationController, parentCoordinators: Coordinator?) {
+        self.childCoordinators = childCoordinators
+        self.navigationController = navigationController
+        self.parentCoordinators = parentCoordinators
+    }
+    
+    func eventOccurred(with type: Event, of nextCoordinator: Coordinator) {
+        switch type {
+        case .goToTripDetailsScreen:
+            childCoordinators.append(nextCoordinator)
+            nextCoordinator.start()
+        }
     }
     
     func start() {
-        let vc = ViewController()
+        let vc = HomeViewController()
         vc.coordinator = self
-        navigationController?.setViewControllers([vc], animated: false)
+        navigationController.isNavigationBarHidden = true
+        navigationController.setViewControllers([vc], animated: false)
     }
+    
+    func end() {}
 }

@@ -7,7 +7,13 @@
 
 import Foundation
 
-let sessaoDeViagens: [ViagemViewModel]? = load("server-response.json")
+func getSessaoDeViagens() -> [ViagemViewModel] {
+    let teste: [ViagemViewModel]? = load("server-response.json")
+    guard let viagens = teste else {
+        fatalError("Server Response Error!")
+    }
+    return viagens
+}
 
 func load(_ filename: String) -> [ViagemViewModel]? {
     let data: Data
