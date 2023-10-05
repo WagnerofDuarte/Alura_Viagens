@@ -28,6 +28,7 @@ class OfertaViagemTableViewCell: UITableViewCell, Coordinating {
         self.viagens = viagens
         
         guard let listaDeViagem = viagens else { return }
+        
         for i in 0..<listaDeViagem.count  {
             setOutlets(i, viagem: listaDeViagem[i])
         }

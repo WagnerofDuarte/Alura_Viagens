@@ -75,6 +75,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B71BF1052ACEEFB6007572A0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		B78F37442AAA5DF9005651AE /* HomeViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +110,7 @@
 		E61511FB2AA615430076CA05 /* Alura_Viagens */ = {
 			isa = PBXGroup;
 			children = (
+				B71BF1052ACEEFB6007572A0 /* Controllers */,
 				E6F589472ABCBB3400B52849 /* Coordinators */,
 				E61512152AA6489F0076CA05 /* Models */,
 				E61512162AA648AD0076CA05 /* Views */,

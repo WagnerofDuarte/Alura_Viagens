@@ -33,7 +33,7 @@ class DetailsCoordinator: Coordinator {
     }
     
     func end() {
-        parentCoordinators?.childCoordinators.popLast()
+        _ = parentCoordinators?.childCoordinators.popLast()
         navigationController.popViewController(animated: true)
     }
 }
