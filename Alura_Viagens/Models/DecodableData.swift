@@ -8,7 +8,6 @@
 import Foundation
 
 func getSessaoDeViagens() -> [ViagemViewModel] {
-    
     let teste: [ViagemViewModel]? = load("server-response.json")
     guard let viagens = teste else {
         fatalError("Server Response Error!")

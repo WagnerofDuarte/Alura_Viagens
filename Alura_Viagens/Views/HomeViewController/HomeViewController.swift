@@ -24,7 +24,6 @@ class HomeViewController: UIViewController, Coordinating {
     
     //MARK: Layout Configuration
     func setUpViagensTableView(){
-        
         viagensTableView.delegate = self
         viagensTableView.dataSource = self
         viagensTableView.register(UINib(nibName: "DestaquesViagemTableViewCell", bundle: nil),
@@ -33,6 +32,7 @@ class HomeViewController: UIViewController, Coordinating {
                                   forCellReuseIdentifier: "OfertaViagemTableViewCell")
     }
 }
+
 
 //MARK: UITableViewDataSource
 extension HomeViewController: UITableViewDataSource {
@@ -101,4 +101,5 @@ extension HomeViewController: UITableViewDelegate {
         return UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone ? 400 : 475
     }
     
+    //func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {}
 }
