@@ -55,7 +55,7 @@ extension HomeTableViewController: UITableViewDataSource {
             guard let celulaDestaques = tableView.dequeueReusableCell(withIdentifier: "DestaquesViagemTableViewCell") as? DestaquesViagemTableViewCell else {
                 fatalError("error to create destaques cell")
             }
-            celulaDestaques.configuraCelula(viagens.viagens[indexPath.row], coordinator: self.coordinator)
+            //celulaDestaques.configuraCelula(viagens.viagens[indexPath.row], coordinator: self.coordinator)
             
             return celulaDestaques
             
@@ -64,7 +64,7 @@ extension HomeTableViewController: UITableViewDataSource {
             guard let celulaOfertas = tableView.dequeueReusableCell(withIdentifier: "OfertaViagemTableViewCell") as? OfertaViagemTableViewCell else {
                 fatalError("error to create oferta cell")
             }
-            celulaOfertas.configuraCelula(viagens.viagens, coordinator: self.coordinator)
+            //celulaOfertas.configuraCelula(viagens.viagens, coordinator: self.coordinator)
             
             return celulaOfertas
         
@@ -102,7 +102,19 @@ extension HomeTableViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        <#code#>
+        
+        switch indexPath.row {
+            
+        case 0:
+            print("0")
+        case 1:
+            print("1")
+        case 2:
+            print("2")
+        default:
+            print("N")
+        }
+        
     }
     
 }
