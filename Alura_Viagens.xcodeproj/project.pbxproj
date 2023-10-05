@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B71BF10A2ACF0481007572A0 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71BF1092ACF0481007572A0 /* HomeTableViewController.swift */; };
 		E61511FD2AA615430076CA05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61511FC2AA615430076CA05 /* AppDelegate.swift */; };
 		E61511FF2AA615430076CA05 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61511FE2AA615430076CA05 /* SceneDelegate.swift */; };
 		E61512062AA615440076CA05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E61512052AA615440076CA05 /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B71BF1092ACF0481007572A0 /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		E61511F92AA615430076CA05 /* Alura_Viagens.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alura_Viagens.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E61511FC2AA615430076CA05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E61511FE2AA615430076CA05 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				E61512052AA615440076CA05 /* Assets.xcassets */,
 				E615120A2AA615440076CA05 /* Info.plist */,
 				E61512072AA615440076CA05 /* LaunchScreen.storyboard */,
+				B71BF1092ACF0481007572A0 /* HomeTableViewController.swift */,
 			);
 			path = Alura_Viagens;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				E6F5894E2ABCC38C00B52849 /* HomeViewController.swift in Sources */,
 				E615121D2AA6513F0076CA05 /* DestaquesViagemTableViewCell.swift in Sources */,
 				E6F589512ABE19FA00B52849 /* DetailsCoordinator.swift in Sources */,
+				B71BF10A2ACF0481007572A0 /* HomeTableViewController.swift in Sources */,
 				E61512362AA762690076CA05 /* ViagemOfertaViewModel.swift in Sources */,
 				E61512332AA761740076CA05 /* OfertaViagemTableViewCell.swift in Sources */,
 				E61512292AA65D9D0076CA05 /* ViagemViewModel.swift in Sources */,
