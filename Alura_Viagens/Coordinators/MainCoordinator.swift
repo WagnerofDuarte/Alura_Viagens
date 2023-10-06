@@ -31,10 +31,22 @@ class MainCoordinator: Coordinator {
     
     func start() {
         let vc = HomeViewController()
-        vc.coordinator = self
+        vc.configureHomeViewController(delegate: self)
+        //vc.coordinator = self
         navigationController.isNavigationBarHidden = true
         navigationController.setViewControllers([vc], animated: false)
     }
     
     func end() {}
+}
+
+extension MainCoordinator: HomeViewControllerDelegate {
+    
+    func homeViewControllerDidTap(_: HomeViewController, viagem: Viagem) {
+        let detailsCoordinator = DetailsCoordinator(childCoordinators: [],
+                                                    navigationController: self.navigationController,
+                                                    viagem: viagem,
+                                                    parentCoordinators: self)
+        self.eventOccurred(with: .goToTripDetailsScreen, of: detailsCoordinator)
+    }
 }

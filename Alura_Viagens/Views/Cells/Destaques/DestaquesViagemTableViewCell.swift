@@ -7,10 +7,16 @@
 
 import UIKit
 
-class DestaquesViagemTableViewCell: UITableViewCell, Coordinating {
+//MARK: DestaquesViagemTableViewCellDelegate
+protocol DestaquesViagemTableViewCellDelegate: AnyObject {
+    func destaquesViagemTableViewCellDidTap(_: DestaquesViagemTableViewCell, viagem: Viagem)
+}
+
+class DestaquesViagemTableViewCell: UITableViewCell {
+    
+    weak var delegate: DestaquesViagemTableViewCellDelegate?
     
     //MARK: - Atributes
-    var coordinator: Coordinator?
     var viagem: Viagem?
     
     // MARK: - IBOutlets
@@ -24,9 +30,9 @@ class DestaquesViagemTableViewCell: UITableViewCell, Coordinating {
     @IBOutlet weak var statusCancelamentoViagemLabel: UILabel!
     
     //MARK: - Layout Configuration
-    func configuraCelula(_ viagem: Viagem?, coordinator: Coordinator?) {
+    func configuraCelula(_ viagem: Viagem?, delegate: DestaquesViagemTableViewCellDelegate?) {
         
-        self.coordinator = coordinator
+        self.delegate = delegate
         self.viagem = viagem
         
         viagemImage.image = UIImage(named: viagem?.asset ?? "")
@@ -44,23 +50,16 @@ class DestaquesViagemTableViewCell: UITableViewCell, Coordinating {
             diariaViagemLabel.text = "\(numeroDeDias) \(diarias) - \(numeroDeHospedes) \(hospedes) "
         }
         
-        backgroundViewCell.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didSelectedView(_:))))
-        
+        backgroundViewCell.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viagemDestaqueCellTapped(_:))))
+            
         DispatchQueue.main.async {
             self.backgroundViewCell.addSombra()
         }
         
     }
     
-    //MARK: - Actions
-    @objc func didSelectedView(_ gesture: UIGestureRecognizer){
-        
-        guard let viagemSelecionada = viagem else { return }
-        
-        let detailsCoordinator = DetailsCoordinator(childCoordinators: [], navigationController: coordinator?.navigationController ?? UINavigationController(), viagem: viagemSelecionada, parentCoordinators: self.coordinator)
-        
-        coordinator?.eventOccurred(with: .goToTripDetailsScreen, of: detailsCoordinator)
-        
+    @objc func viagemDestaqueCellTapped(_ sender: UITapGestureRecognizer) {
+        guard let viagem = viagem else { return }
+        delegate?.destaquesViagemTableViewCellDidTap(self, viagem: viagem)
     }
-    
 }

@@ -9,16 +9,21 @@
 
 import UIKit
 
+//MARK: HomeTableControllerDelegate
+protocol HomeTableControllerDelegate: AnyObject {
+    func homeTableControllerDidTap(_: HomeTableController, viagem: Viagem)
+}
+
 //MARK: Class Definition
-class HomeTableViewController: NSObject, Coordinating {
+class HomeTableController: NSObject{
     
     //MARK: Atributes
-    var coordinator: Coordinator?
+    weak var delegate: HomeTableControllerDelegate?
     let viagens: [ViagemViewModel]
     
     //MARK: Inicializer
-    init(coordinator: Coordinator? = nil, viagens: [ViagemViewModel]) {
-        self.coordinator = coordinator
+    init(viagens: [ViagemViewModel], delegate: HomeTableControllerDelegate?) {
+        self.delegate = delegate
         self.viagens = viagens
     }
     
@@ -34,8 +39,16 @@ class HomeTableViewController: NSObject, Coordinating {
     
 }
 
+//MARK: DestaquesViagemTableViewCellDelegate
+extension HomeTableController: DestaquesViagemTableViewCellDelegate {
+
+    func destaquesViagemTableViewCellDidTap(_: DestaquesViagemTableViewCell, viagem: Viagem) {
+        delegate?.homeTableControllerDidTap(self, viagem: viagem)
+    }
+}
+
 //MARK: UITableViewDataSource
-extension HomeTableViewController: UITableViewDataSource {
+extension HomeTableController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return viagens.count
@@ -55,18 +68,18 @@ extension HomeTableViewController: UITableViewDataSource {
             guard let celulaDestaques = tableView.dequeueReusableCell(withIdentifier: "DestaquesViagemTableViewCell") as? DestaquesViagemTableViewCell else {
                 fatalError("error to create destaques cell")
             }
-            //celulaDestaques.configuraCelula(viagens.viagens[indexPath.row], coordinator: self.coordinator)
+            celulaDestaques.configuraCelula(viagens.viagens[indexPath.row], delegate: self)
             
             return celulaDestaques
             
-        case .ofertas:
+        /*case .ofertas:
             
             guard let celulaOfertas = tableView.dequeueReusableCell(withIdentifier: "OfertaViagemTableViewCell") as? OfertaViagemTableViewCell else {
                 fatalError("error to create oferta cell")
             }
-            //celulaOfertas.configuraCelula(viagens.viagens, coordinator: self.coordinator)
+            celulaOfertas.configuraCelula(viagens.viagens, coordinator: self.coordinator)
             
-            return celulaOfertas
+            return celulaOfertas*/
         
         default:
             return UITableViewCell()
@@ -76,7 +89,7 @@ extension HomeTableViewController: UITableViewDataSource {
 }
 
 //MARK: UITableViewDelegate
-extension HomeTableViewController: UITableViewDelegate {
+extension HomeTableController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0 {
@@ -103,18 +116,21 @@ extension HomeTableViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        switch indexPath.row {
-            
-        case 0:
-            print("0")
-        case 1:
-            print("1")
-        case 2:
-            print("2")
+        switch indexPath.section {
+        case 0: //Destaques
+            print("Destaques")
+        case 1: //Ofertas
+            print("Ofertas")
         default:
-            print("N")
+            print("Nada")
         }
         
+//        let detailsCoordinator = DetailsCoordinator(childCoordinators: [],
+//                                                    navigationController: coordinator?.navigationController ?? UINavigationController(),
+//                                                    viagem: viagens[indexPath.section].viagens[indexPath.row],
+//                                                    parentCoordinators: self.coordinator)
+//        
+//        coordinator?.eventOccurred(with: .goToTripDetailsScreen, of: detailsCoordinator)
+        
     }
-    
 }

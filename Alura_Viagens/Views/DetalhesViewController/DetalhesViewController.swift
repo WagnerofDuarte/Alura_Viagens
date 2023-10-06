@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol DetalhesViewControllerDelegate {
+    
+}
+
 class DetalhesViewController: UIViewController, Coordinating {
     
     //MARK: - Atributos
@@ -59,7 +63,7 @@ class DetalhesViewController: UIViewController, Coordinating {
     }
     
     @IBAction func continueButton(_ sender: UIButton) {
-        coordinator?.end()
+        // Vai pra tela de comprar
     }
     
     

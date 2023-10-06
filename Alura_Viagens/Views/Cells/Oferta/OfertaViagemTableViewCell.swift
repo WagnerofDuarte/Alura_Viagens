@@ -7,11 +7,10 @@
 
 import UIKit
 
-class OfertaViagemTableViewCell: UITableViewCell, Coordinating {
+class OfertaViagemTableViewCell: UITableViewCell{
     
     //MARK: - Atributes
     private var viagens: [Viagem]?
-    var coordinator: Coordinator?
     
     // MARK: - IBOutlets
     @IBOutlet var viagemImages: [UIImageView]!
@@ -24,15 +23,18 @@ class OfertaViagemTableViewCell: UITableViewCell, Coordinating {
     // MARK: - Layout Methods
     func configuraCelula(_ viagens: [Viagem]?, coordinator: Coordinator?){
         
-        self.coordinator = coordinator
         self.viagens = viagens
         
         guard let listaDeViagem = viagens else { return }
+        
+        print(listaDeViagem.count)
+        
         for i in 0..<listaDeViagem.count  {
             setOutlets(i, viagem: listaDeViagem[i])
         }
+        
         fundoViews.forEach{ viewAtual in
-            viewAtual.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didSelectedView(_:))))
+            //viewAtual.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didSelectedView(_:))))
             viewAtual.addSombra()
         }
     }
@@ -56,7 +58,7 @@ class OfertaViagemTableViewCell: UITableViewCell, Coordinating {
     }
     
     //MARK: Actions
-    @objc func didSelectedView(_ gesture: UIGestureRecognizer){
+    /*@objc func didSelectedView(_ gesture: UIGestureRecognizer){
         
         if let selectedView = gesture.view  {
             
@@ -66,5 +68,5 @@ class OfertaViagemTableViewCell: UITableViewCell, Coordinating {
             
             coordinator?.eventOccurred(with: .goToTripDetailsScreen, of: detailsCoordinator)
         }
-    }
+    }*/
 }

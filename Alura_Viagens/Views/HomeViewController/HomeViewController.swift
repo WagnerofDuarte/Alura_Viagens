@@ -9,11 +9,15 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, Coordinating {
+protocol HomeViewControllerDelegate: AnyObject {
+    func homeViewControllerDidTap(_: HomeViewController, viagem: Viagem)
+}
+
+class HomeViewController: UIViewController {
    
     //MARK: Atributtes
-    var coordinator: Coordinator?
-    var tableViewController: HomeTableViewController?
+    var delegate: HomeViewControllerDelegate?
+    var tableController: HomeTableController?
     
     let viagens: [ViagemViewModel] = getSessaoDeViagens()
     
@@ -23,8 +27,22 @@ class HomeViewController: UIViewController, Coordinating {
     //MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableViewController = HomeTableViewController(viagens: viagens)
-        tableViewController!.coordinator = self.coordinator // !
-        tableViewController?.setUpViagensTableView(tableView: viagensTableView)
+        
+        //configureHomeViewController(delegate: )
+        //tableController!.coordinator = self.coordinator // !
+        tableController?.setUpViagensTableView(tableView: viagensTableView)
+    }
+    
+    func configureHomeViewController(delegate: HomeViewControllerDelegate?){
+        self.tableController = HomeTableController(viagens: viagens, delegate: self)
+        self.delegate = delegate
+        
+    }
+
+}
+
+extension HomeViewController: HomeTableControllerDelegate {
+    func homeTableControllerDidTap(_: HomeTableController, viagem: Viagem) {
+        delegate?.homeViewControllerDidTap(self, viagem: viagem)
     }
 }
