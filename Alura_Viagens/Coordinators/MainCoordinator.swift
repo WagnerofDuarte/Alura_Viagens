@@ -11,7 +11,7 @@ import UIKit
 class MainCoordinator: Coordinator {
     
     var parentCoordinators: Coordinator?
-    var childCoordinators: [Coordinator] //???
+    var childCoordinators: [Coordinator]
     var navigationController: UINavigationController
     
     
@@ -32,7 +32,6 @@ class MainCoordinator: Coordinator {
     func start() {
         let vc = HomeViewController()
         vc.configureHomeViewController(delegate: self)
-        //vc.coordinator = self
         navigationController.isNavigationBarHidden = true
         navigationController.setViewControllers([vc], animated: false)
     }

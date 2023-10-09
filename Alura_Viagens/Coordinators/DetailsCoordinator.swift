@@ -26,7 +26,7 @@ class DetailsCoordinator: Coordinator {
     func eventOccurred(with type: Event, of coordinator: Coordinator) {}
     
     func start() {
-        let vc = DetalhesViewController.instanciar(viagem)
+        let vc = DetalhesViewController.instanciar(viagem, delegate: self)
         vc.coordinator = self
         navigationController.isNavigationBarHidden = true
         navigationController.pushViewController(vc, animated: true)
@@ -35,5 +35,11 @@ class DetailsCoordinator: Coordinator {
     func end() {
         _ = parentCoordinators?.childCoordinators.popLast()
         navigationController.popViewController(animated: true)
+    }
+}
+
+extension DetailsCoordinator: DetalhesViewControllerDelegate {
+    func backButtonDetalhesViewControllerDidTap(_: DetalhesViewController) {
+        self.end()
     }
 }

@@ -27,9 +27,6 @@ class HomeViewController: UIViewController {
     //MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //configureHomeViewController(delegate: )
-        //tableController!.coordinator = self.coordinator // !
         tableController?.setUpViagensTableView(tableView: viagensTableView)
     }
     

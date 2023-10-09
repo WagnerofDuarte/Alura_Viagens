@@ -77,6 +77,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B7063BF72AD47D480099B504 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B71BF1092ACF0481007572A0 /* HomeTableController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		B78F37442AAA5DF9005651AE /* HomeViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +113,7 @@
 		E61511FB2AA615430076CA05 /* Alura_Viagens */ = {
 			isa = PBXGroup;
 			children = (
+				B7063BF72AD47D480099B504 /* Controllers */,
 				E6F589472ABCBB3400B52849 /* Coordinators */,
 				E61512152AA6489F0076CA05 /* Models */,
 				E61512162AA648AD0076CA05 /* Views */,
@@ -115,7 +124,6 @@
 				E61512052AA615440076CA05 /* Assets.xcassets */,
 				E615120A2AA615440076CA05 /* Info.plist */,
 				E61512072AA615440076CA05 /* LaunchScreen.storyboard */,
-				B71BF1092ACF0481007572A0 /* HomeTableController.swift */,
 			);
 			path = Alura_Viagens;
 			sourceTree = "<group>";
