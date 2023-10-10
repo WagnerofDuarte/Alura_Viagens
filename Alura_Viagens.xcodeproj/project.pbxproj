@@ -10,6 +10,8 @@
 		B71BF10A2ACF0481007572A0 /* HomeTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71BF1092ACF0481007572A0 /* HomeTableController.swift */; };
 		B79A78C82AD5B5C6000E2586 /* OfertasViagensCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79A78C62AD5B5C6000E2586 /* OfertasViagensCollectionViewCell.swift */; };
 		B79A78C92AD5B5C6000E2586 /* OfertasViagensCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B79A78C72AD5B5C6000E2586 /* OfertasViagensCollectionViewCell.xib */; };
+		B79A78CC2AD5D232000E2586 /* HomeCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79A78CB2AD5D232000E2586 /* HomeCollectionController.swift */; };
+		B79A78D22AD5DF40000E2586 /* CollectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B79A78D12AD5DF40000E2586 /* CollectionTableViewCell.xib */; };
 		E61511FD2AA615430076CA05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61511FC2AA615430076CA05 /* AppDelegate.swift */; };
 		E61511FF2AA615430076CA05 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61511FE2AA615430076CA05 /* SceneDelegate.swift */; };
 		E61512062AA615440076CA05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E61512052AA615440076CA05 /* Assets.xcassets */; };
@@ -41,6 +43,8 @@
 		B71BF1092ACF0481007572A0 /* HomeTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableController.swift; sourceTree = "<group>"; };
 		B79A78C62AD5B5C6000E2586 /* OfertasViagensCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfertasViagensCollectionViewCell.swift; sourceTree = "<group>"; };
 		B79A78C72AD5B5C6000E2586 /* OfertasViagensCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OfertasViagensCollectionViewCell.xib; sourceTree = "<group>"; };
+		B79A78CB2AD5D232000E2586 /* HomeCollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionController.swift; sourceTree = "<group>"; };
+		B79A78D12AD5DF40000E2586 /* CollectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionTableViewCell.xib; sourceTree = "<group>"; };
 		E61511F92AA615430076CA05 /* Alura_Viagens.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alura_Viagens.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E61511FC2AA615430076CA05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E61511FE2AA615430076CA05 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				B71BF1092ACF0481007572A0 /* HomeTableController.swift */,
+				B79A78CB2AD5D232000E2586 /* HomeCollectionController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -223,6 +228,7 @@
 				E61512322AA761740076CA05 /* A.xib */,
 				B79A78C62AD5B5C6000E2586 /* OfertasViagensCollectionViewCell.swift */,
 				B79A78C72AD5B5C6000E2586 /* OfertasViagensCollectionViewCell.xib */,
+				B79A78D12AD5DF40000E2586 /* CollectionTableViewCell.xib */,
 			);
 			path = Oferta;
 			sourceTree = "<group>";
@@ -306,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E61512092AA615440076CA05 /* LaunchScreen.storyboard in Resources */,
+				B79A78D22AD5DF40000E2586 /* CollectionTableViewCell.xib in Resources */,
 				E61512212AA65CF80076CA05 /* server-response.json in Resources */,
 				E61512112AA619860076CA05 /* HomeTableViewHeader.xib in Resources */,
 				E61512062AA615440076CA05 /* Assets.xcassets in Resources */,
@@ -326,6 +333,7 @@
 			files = (
 				E6F5894B2ABCBB3400B52849 /* Coordinator.swift in Sources */,
 				E6E8A9FA2AA92A9400828EC7 /* DetalhesViewController.swift in Sources */,
+				B79A78CC2AD5D232000E2586 /* HomeCollectionController.swift in Sources */,
 				E61512272AA65D290076CA05 /* Viagem.swift in Sources */,
 				E6F589452ABCBA5400B52849 /* UIView+Extension.swift in Sources */,
 				E6F5894E2ABCC38C00B52849 /* HomeViewController.swift in Sources */,

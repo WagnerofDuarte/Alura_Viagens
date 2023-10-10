@@ -10,16 +10,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="213" id="SyO-7h-q3K">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="HomeCollectionController" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HomeCollectionController" rowHeight="213" id="SyO-7h-q3K" customClass="HomeCollectionController" customModule="Alura_Viagens" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="416" height="213"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SyO-7h-q3K" id="oTb-rL-N7q">
                 <rect key="frame" x="0.0" y="0.0" width="416" height="213"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Sey-yg-SfX">
-                        <rect key="frame" x="34" y="-42" width="240" height="128"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Sey-yg-SfX">
+                        <rect key="frame" x="0.0" y="0.0" width="416" height="213"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2lt-0g-1gu">
                             <size key="itemSize" width="128" height="128"/>
@@ -29,6 +28,12 @@
                         </collectionViewFlowLayout>
                     </collectionView>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="Sey-yg-SfX" firstAttribute="leading" secondItem="oTb-rL-N7q" secondAttribute="leading" id="3MI-Uz-Ft9"/>
+                    <constraint firstAttribute="bottom" secondItem="Sey-yg-SfX" secondAttribute="bottom" id="LWR-hM-wBK"/>
+                    <constraint firstAttribute="trailing" secondItem="Sey-yg-SfX" secondAttribute="trailing" id="d65-ye-7mO"/>
+                    <constraint firstItem="Sey-yg-SfX" firstAttribute="top" secondItem="oTb-rL-N7q" secondAttribute="top" id="vqM-TS-4vH"/>
+                </constraints>
             </tableViewCellContentView>
             <point key="canvasLocation" x="-30.534351145038165" y="77.112676056338032"/>
         </tableViewCell>

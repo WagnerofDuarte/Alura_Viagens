@@ -5,8 +5,6 @@
 //  Created by dtiDigital on 05/10/23.
 //
 
-//Remover os coordninators deste arquivo
-
 import UIKit
 
 //MARK: HomeTableControllerDelegate
@@ -122,8 +120,13 @@ extension HomeTableController: UITableViewDelegate {
 
 //MARK: DestaquesViagemTableViewCellDelegate
 extension HomeTableController: DestaquesViagemTableViewCellDelegate {
-
     func destaquesViagemTableViewCellDidTap(_: DestaquesViagemTableViewCell, viagem: Viagem) {
+        delegate?.homeTableControllerDidTap(self, viagem: viagem)
+    }
+}
+
+extension HomeTableController: HomeCollectionControllerDelegate {
+    func homeCollectionControllerDidTap(_: HomeCollectionController, viagem: Viagem) {
         delegate?.homeTableControllerDidTap(self, viagem: viagem)
     }
 }
