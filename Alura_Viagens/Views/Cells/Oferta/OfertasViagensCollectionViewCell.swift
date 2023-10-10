@@ -50,9 +50,11 @@ class OfertasViagensCollectionViewCell: UICollectionViewCell {
         subtituloViagemLabel.text = viagem.subtitulo
         precoSemDescontoLabel.text = "Á Partir de R$ \(viagem.precoSemDesconto)"
         precoLabel.text = "R$ \(viagem.preco)"
-        
-        fundoView.addSombra()
+    
         fundoView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viagemOfertaCellTapped(_:))))
+        DispatchQueue.main.async {
+            self.fundoView.addSombra()
+        }
         
     }
     
