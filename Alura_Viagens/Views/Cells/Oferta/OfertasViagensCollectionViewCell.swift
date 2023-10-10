@@ -25,8 +25,11 @@ class OfertasViagensCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var precoLabel: UILabel!
     @IBOutlet weak var fundoView: UIView!
     
-    //MARK: - ID
+    //MARK: - IDs
     static let identifier = "OfertasViagensCollectionViewCell"
+    static func nib() -> UINib {
+        return UINib(nibName: "OfertasViagensCollectionViewCell", bundle: nil)
+    }
     
     //MARK: Initializer
     override func awakeFromNib() {

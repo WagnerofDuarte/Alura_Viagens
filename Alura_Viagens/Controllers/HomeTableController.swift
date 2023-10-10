@@ -31,8 +31,8 @@ class HomeTableController: NSObject{
         tableView.dataSource = self
         tableView.register(UINib(nibName: "DestaquesViagemTableViewCell", bundle: nil),
                                   forCellReuseIdentifier: "DestaquesViagemTableViewCell")
-        tableView.register(UINib(nibName: "OfertaViagemTableViewCell", bundle: nil),
-                                  forCellReuseIdentifier: "OfertaViagemTableViewCell")
+        tableView.register(UINib(nibName: "HomeCollectionController", bundle: nil),
+                                  forCellReuseIdentifier: "HomeCollectionController")
     }
     
 }
@@ -64,12 +64,14 @@ extension HomeTableController: UITableViewDataSource {
             
         case .ofertas: // Criar uma collection view para armazenar cada celula de ofertas
             
-            /*guard let celulaOfertas = tableView.dequeueReusableCell(withIdentifier: "OfertaViagemTableViewCell") as? OfertaViagemTableViewCell else {
+            print(viagens.viagens)
+            
+            guard let celulaOfertas = tableView.dequeueReusableCell(withIdentifier: "HomeCollectionController") as? HomeCollectionController else {
                 fatalError("error to create oferta cell")
             }
-            celulaOfertas.configuraCelula(viagens.viagens, coordinator: self.coordinator)*/
+            celulaOfertas.configure(delegate: self, viagens: viagens.viagens)
             
-            return UITableViewCell()
+            return celulaOfertas
             
         case .internacionais:
             
