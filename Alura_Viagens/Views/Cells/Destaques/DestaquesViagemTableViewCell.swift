@@ -14,10 +14,9 @@ protocol DestaquesViagemTableViewCellDelegate: AnyObject {
 
 class DestaquesViagemTableViewCell: UITableViewCell {
     
-    weak var delegate: DestaquesViagemTableViewCellDelegate?
-    
     //MARK: - Atributes
     var viagem: Viagem?
+    weak var delegate: DestaquesViagemTableViewCellDelegate?
     
     // MARK: - IBOutlets
     @IBOutlet weak var backgroundViewCell: UIView!

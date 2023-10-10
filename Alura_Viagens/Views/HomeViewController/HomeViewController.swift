@@ -35,7 +35,6 @@ class HomeViewController: UIViewController {
         self.delegate = delegate
         
     }
-
 }
 
 extension HomeViewController: HomeTableControllerDelegate {

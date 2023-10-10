@@ -8,15 +8,14 @@
 import UIKit
 
 protocol DetalhesViewControllerDelegate {
-    func backButtonDetalhesViewControllerDidTap(_: DetalhesViewController)
+    func detalhesViewControllerBackButtonDidTap(_: DetalhesViewController)
 }
 
-class DetalhesViewController: UIViewController, Coordinating {
+class DetalhesViewController: UIViewController {
     
     //MARK: - Atributos
     var viagem: Viagem?
     var delegate: DetalhesViewControllerDelegate?
-    var coordinator: Coordinator?
     
     //MARK: - IBOutlets
     @IBOutlet weak var tituloViagemLabel: UILabel!
@@ -61,7 +60,7 @@ class DetalhesViewController: UIViewController, Coordinating {
     
     //MARK: - Actions
     @IBAction func backButton(_ sender: UIButton) {
-        delegate?.backButtonDetalhesViewControllerDidTap(self)
+        delegate?.detalhesViewControllerBackButtonDidTap(self)
     }
     
     @IBAction func continueButton(_ sender: UIButton) {

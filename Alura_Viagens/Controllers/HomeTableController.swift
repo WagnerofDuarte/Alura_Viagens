@@ -39,14 +39,6 @@ class HomeTableController: NSObject{
     
 }
 
-//MARK: DestaquesViagemTableViewCellDelegate
-extension HomeTableController: DestaquesViagemTableViewCellDelegate {
-
-    func destaquesViagemTableViewCellDidTap(_: DestaquesViagemTableViewCell, viagem: Viagem) {
-        delegate?.homeTableControllerDidTap(self, viagem: viagem)
-    }
-}
-
 //MARK: UITableViewDataSource
 extension HomeTableController: UITableViewDataSource {
     
@@ -72,18 +64,19 @@ extension HomeTableController: UITableViewDataSource {
             
             return celulaDestaques
             
-        /*case .ofertas:
+        case .ofertas: // Criar uma collection view para armazenar cada celula de ofertas
             
-            guard let celulaOfertas = tableView.dequeueReusableCell(withIdentifier: "OfertaViagemTableViewCell") as? OfertaViagemTableViewCell else {
+            /*guard let celulaOfertas = tableView.dequeueReusableCell(withIdentifier: "OfertaViagemTableViewCell") as? OfertaViagemTableViewCell else {
                 fatalError("error to create oferta cell")
             }
-            celulaOfertas.configuraCelula(viagens.viagens, coordinator: self.coordinator)
+            celulaOfertas.configuraCelula(viagens.viagens, coordinator: self.coordinator)*/
             
-            return celulaOfertas*/
-        
-        default:
             return UITableViewCell()
             
+        case .internacionais:
+            
+            return UITableViewCell()
+
         }
     }
 }
@@ -118,19 +111,19 @@ extension HomeTableController: UITableViewDelegate {
         
         switch indexPath.section {
         case 0: //Destaques
-            print("Destaques")
+            print(viagens)
         case 1: //Ofertas
             print("Ofertas")
         default:
             print("Nada")
         }
-        
-//        let detailsCoordinator = DetailsCoordinator(childCoordinators: [],
-//                                                    navigationController: coordinator?.navigationController ?? UINavigationController(),
-//                                                    viagem: viagens[indexPath.section].viagens[indexPath.row],
-//                                                    parentCoordinators: self.coordinator)
-//        
-//        coordinator?.eventOccurred(with: .goToTripDetailsScreen, of: detailsCoordinator)
-        
+    }
+}
+
+//MARK: DestaquesViagemTableViewCellDelegate
+extension HomeTableController: DestaquesViagemTableViewCellDelegate {
+
+    func destaquesViagemTableViewCellDidTap(_: DestaquesViagemTableViewCell, viagem: Viagem) {
+        delegate?.homeTableControllerDidTap(self, viagem: viagem)
     }
 }

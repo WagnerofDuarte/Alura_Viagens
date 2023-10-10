@@ -7,39 +7,37 @@
 
 import UIKit
 
-class OfertaViagemTableViewCell: UITableViewCell{
+class OfertaViagemCollectionViewCell: UITableViewCell{
     
     //MARK: - Atributes
-    private var viagens: [Viagem]?
+    private var viagem: Viagem?
     
-    // MARK: - IBOutlets
-    @IBOutlet var viagemImages: [UIImageView]!
-    @IBOutlet var tituloViagensLabels: [UILabel]!
-    @IBOutlet var subtituloViagemLabels: [UILabel]!
-    @IBOutlet var precoSemDescontoLabels: [UILabel]!
-    @IBOutlet var precoLabels: [UILabel]!
-    @IBOutlet var fundoViews: [UIView]!
+    //MARK: - IBOutlets
+    @IBOutlet weak var viagemImage: UIImageView!
+    @IBOutlet weak var tituloViagemLabel: UILabel!
+    @IBOutlet weak var subtituloViagemLabel: UILabel!
+    @IBOutlet weak var precoSemDescontoLabel: UILabel!
+    @IBOutlet weak var precoLabel: UILabel!
+    @IBOutlet weak var fundoView: UIView!
     
     // MARK: - Layout Methods
-    func configuraCelula(_ viagens: [Viagem]?, coordinator: Coordinator?){
+    func configuraCelula(_ viagem: Viagem?){
         
-        self.viagens = viagens
+        self.viagem = viagem
+        guard let viagem = viagem else { return }
         
-        guard let listaDeViagem = viagens else { return }
+        viagemImage.image = UIImage(named: viagem.asset)
+        tituloViagemLabel.text = viagem.titulo
+        subtituloViagemLabel.text = viagem.subtitulo
+        precoSemDescontoLabel.text = "Á Partir de R$ \(viagem.precoSemDesconto)"
+        precoLabel.text = "R$ \(viagem.preco)"
         
-        print(listaDeViagem.count)
+        fundoView.addSombra()
+        //fundoView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(<#T##@objc method#>)))
         
-        for i in 0..<listaDeViagem.count  {
-            setOutlets(i, viagem: listaDeViagem[i])
-        }
-        
-        fundoViews.forEach{ viewAtual in
-            //viewAtual.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didSelectedView(_:))))
-            viewAtual.addSombra()
-        }
     }
     
-    func setOutlets(_ index: Int, viagem: Viagem) {
+    /*func setOutlets(_ index: Int, viagem: Viagem) {
         
         let imageOutlet = viagemImages[index]
         imageOutlet.image = UIImage(named: viagem.asset)
@@ -55,7 +53,7 @@ class OfertaViagemTableViewCell: UITableViewCell{
         
         let precoOutlet = precoLabels[index]
         precoOutlet.text = "R$ \(viagem.preco)"
-    }
+    }*/
     
     //MARK: Actions
     /*@objc func didSelectedView(_ gesture: UIGestureRecognizer){
@@ -68,5 +66,10 @@ class OfertaViagemTableViewCell: UITableViewCell{
             
             coordinator?.eventOccurred(with: .goToTripDetailsScreen, of: detailsCoordinator)
         }
+    }*/
+    
+    /*@objc func viagemDestaqueCellTapped(_ sender: UITapGestureRecognizer) {
+        guard let viagem = viagem else { return }
+        //delegate?.destaquesViagemTableViewCellDidTap(self, viagem: viagem)
     }*/
 }

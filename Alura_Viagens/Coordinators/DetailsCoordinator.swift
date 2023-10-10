@@ -10,8 +10,8 @@ import UIKit
 
 class DetailsCoordinator: Coordinator {
     
-    var parentCoordinators: Coordinator?
     let viagem: Viagem
+    var parentCoordinators: Coordinator?
     var navigationController: UINavigationController
     var childCoordinators: [Coordinator]
     
@@ -27,7 +27,6 @@ class DetailsCoordinator: Coordinator {
     
     func start() {
         let vc = DetalhesViewController.instanciar(viagem, delegate: self)
-        vc.coordinator = self
         navigationController.isNavigationBarHidden = true
         navigationController.pushViewController(vc, animated: true)
     }
@@ -39,7 +38,7 @@ class DetailsCoordinator: Coordinator {
 }
 
 extension DetailsCoordinator: DetalhesViewControllerDelegate {
-    func backButtonDetalhesViewControllerDidTap(_: DetalhesViewController) {
+    func detalhesViewControllerBackButtonDidTap(_: DetalhesViewController) {
         self.end()
     }
 }
