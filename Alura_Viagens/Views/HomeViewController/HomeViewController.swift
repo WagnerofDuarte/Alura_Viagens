@@ -5,13 +5,22 @@
 //  Created by Wagner Duarte on 21/09/23.
 //
 
+//Oq é melhor? Manter as viagens aqui ou na TableViewController?
+
 import UIKit
 
-class HomeViewController: UIViewController, Coordinating {
+//MARK: HomeViewControllerDelegate
+protocol HomeViewControllerDelegate: AnyObject {
+    func homeViewControllerDidTap(_: HomeViewController, viagem: Viagem)
+}
+
+//MARK: Class Definition
+class HomeViewController: UIViewController {
    
     //MARK: Atributtes
-    var coordinator: Coordinator?
-    let viagens = getSessaoDeViagens()
+    var delegate: HomeViewControllerDelegate?
+    var tableController: HomeTableController?
+    let viagens: [ViagemViewModel] = getSessaoDeViagens()
     
     //MARK: IBOutlets
     @IBOutlet weak var viagensTableView: UITableView!
@@ -19,87 +28,18 @@ class HomeViewController: UIViewController, Coordinating {
     //MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpViagensTableView()
+        tableController?.setUpViagensTableView(tableView: viagensTableView)
     }
     
-    //MARK: Layout Configuration
-    func setUpViagensTableView(){
-        viagensTableView.delegate = self
-        viagensTableView.dataSource = self
-        viagensTableView.register(UINib(nibName: "DestaquesViagemTableViewCell", bundle: nil),
-                                  forCellReuseIdentifier: "DestaquesViagemTableViewCell")
-        viagensTableView.register(UINib(nibName: "OfertaViagemTableViewCell", bundle: nil),
-                                  forCellReuseIdentifier: "OfertaViagemTableViewCell")
+    func configureHomeViewController(delegate: HomeViewControllerDelegate?){
+        self.delegate = delegate
+        self.tableController = HomeTableController(viagens: viagens, delegate: self)
     }
 }
 
-
-//MARK: UITableViewDataSource
-extension HomeViewController: UITableViewDataSource {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return viagens.count
+//MARK: HomeTableControllerDelegate
+extension HomeViewController: HomeTableControllerDelegate {
+    func homeTableControllerDidTap(_: HomeTableController, viagem: Viagem) {
+        delegate?.homeViewControllerDidTap(self, viagem: viagem)
     }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viagens[section].numeroDeLinhas
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let viagens = self.viagens[indexPath.section]
-        
-        switch viagens.tipo {
-        case .destaques:
-            
-            guard let celulaDestaques = tableView.dequeueReusableCell(withIdentifier: "DestaquesViagemTableViewCell") as? DestaquesViagemTableViewCell else {
-                fatalError("error to create destaques cell")
-            }
-            celulaDestaques.configuraCelula(viagens.viagens[indexPath.row], coordinator: self.coordinator)
-            
-            return celulaDestaques
-            
-        case .ofertas:
-            
-            guard let celulaOfertas = tableView.dequeueReusableCell(withIdentifier: "OfertaViagemTableViewCell") as? OfertaViagemTableViewCell else {
-                fatalError("error to create oferta cell")
-            }
-            celulaOfertas.configuraCelula(viagens.viagens, coordinator: self.coordinator)
-            
-            return celulaOfertas
-        
-        default:
-            return UITableViewCell()
-            
-        }
-    }
-}
-
-//MARK: UITableViewDelegate
-extension HomeViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if section == 0 {
-            
-            let headerView = Bundle.main.loadNibNamed("HomeTableViewHeader", owner: self, options: nil)?.first as? HomeTableViewHeader
-            headerView?.configuraHeader()
-            
-            return headerView
-        }
-        return nil
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 0 {
-            return 300
-        } else {
-            return 0
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone ? 400 : 475
-    }
-    
-    //func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {}
 }

@@ -7,11 +7,17 @@
 
 import UIKit
 
-class DetalhesViewController: UIViewController, Coordinating {
+//MARK: DetalhesViewControllerDelegate
+protocol DetalhesViewControllerDelegate {
+    func detalhesViewControllerBackButtonDidTap(_: DetalhesViewController)
+}
+
+//MARK: Class Definition
+class DetalhesViewController: UIViewController {
     
     //MARK: - Atributos
     var viagem: Viagem?
-    var coordinator: Coordinator?
+    var delegate: DetalhesViewControllerDelegate?
     
     //MARK: - IBOutlets
     @IBOutlet weak var tituloViagemLabel: UILabel!
@@ -22,9 +28,10 @@ class DetalhesViewController: UIViewController, Coordinating {
     @IBOutlet weak var precoViagemLabel: UILabel!
     
     //MARK: - Initializer
-    class func instanciar(_ viagem: Viagem?) -> DetalhesViewController {
+    class func instanciar(_ viagem: Viagem?, delegate: DetalhesViewControllerDelegate?) -> DetalhesViewController {
         let detalhesViewController = DetalhesViewController(nibName: String(describing: self), bundle: nil)
         detalhesViewController.viagem = viagem
+        detalhesViewController.delegate = delegate
         return detalhesViewController
     }
     
@@ -37,30 +44,23 @@ class DetalhesViewController: UIViewController, Coordinating {
     //MARK: - Layout Configuration
     func configuraView(){
         
-        viagemImage.image = UIImage(named: viagem?.asset ?? "")
-        tituloViagemLabel.text = viagem?.titulo ?? ""
-        subtituloViagemLabel.text = viagem?.subtitulo ?? ""
-        precoViagemLabel.text = "R$ \(viagem?.preco ?? 0)"
+        guard let viagem = self.viagem else { return }
         
-        let atributoString: NSMutableAttributedString = NSMutableAttributedString(string: "R$ \(viagem?.precoSemDesconto ?? 0)")
-        atributoString.addAttribute(NSAttributedString.Key.strikethroughStyle,value: 1, range: NSMakeRange(0, atributoString.length))
-        precoSemDescontoViagemLabel.attributedText = atributoString
+        viagemImage.image = UIImage(named: viagem.asset)
+        tituloViagemLabel.text = viagem.titulo
+        subtituloViagemLabel.text = viagem.subtitulo
+        precoViagemLabel.text = UsefulStrings.appendMoneySignToDouble(viagem.preco, startingAtText: false)
+        precoSemDescontoViagemLabel.attributedText = UsefulStrings.addStrikeThroughToDouble(viagem.precoSemDesconto)
+        diariaViagemLabl.text = UsefulStrings.numberOfGuestsAndDaysString(days: viagem.diaria, guests: viagem.hospedes)
         
-        if let numeroDeDias = viagem?.diaria, let numeroDeHospedes = viagem? .hospedes {
-            let diarias = numeroDeDias == 1 ? "Diária" : "Diárias"
-            let hospedes = numeroDeHospedes == 1 ? "Pessoa" : "Pessoas"
-            diariaViagemLabl.text = "\(numeroDeDias) \(diarias) - \(numeroDeHospedes) \(hospedes) "
-        }
     }
     
     //MARK: - Actions
     @IBAction func backButton(_ sender: UIButton) {
-        coordinator?.end()
+        delegate?.detalhesViewControllerBackButtonDidTap(self)
     }
     
     @IBAction func continueButton(_ sender: UIButton) {
-        coordinator?.end()
+        // Vai pra tela de comprar
     }
-    
-    
 }

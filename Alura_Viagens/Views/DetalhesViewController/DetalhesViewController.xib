@@ -33,31 +33,29 @@
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beto-carrero-brasil" translatesAutoresizingMaskIntoConstraints="NO" id="rIU-U6-ZIB">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="213"/>
                                 </imageView>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KzO-LS-Qd5">
-                                    <rect key="frame" x="16" y="16" width="60" height="60"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="60" id="bAh-Ah-HAh"/>
-                                        <constraint firstAttribute="width" constant="60" id="jue-JM-NTt"/>
-                                    </constraints>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" image="arrow.uturn.backward" catalog="system">
-                                        <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </buttonConfiguration>
-                                    <connections>
-                                        <action selector="backButton:" destination="-1" eventType="touchUpInside" id="3gj-YY-Q4B"/>
-                                    </connections>
-                                </button>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
-                                <constraint firstItem="KzO-LS-Qd5" firstAttribute="top" secondItem="sHN-Ue-wl8" secondAttribute="top" constant="16" id="B2K-Ch-SvM"/>
                                 <constraint firstItem="rIU-U6-ZIB" firstAttribute="leading" secondItem="sHN-Ue-wl8" secondAttribute="leading" id="K7q-x0-5yJ"/>
                                 <constraint firstAttribute="trailing" secondItem="rIU-U6-ZIB" secondAttribute="trailing" id="WQA-OJ-pXL"/>
                                 <constraint firstItem="rIU-U6-ZIB" firstAttribute="top" secondItem="sHN-Ue-wl8" secondAttribute="top" id="ZUk-1Q-opd"/>
                                 <constraint firstAttribute="bottom" secondItem="rIU-U6-ZIB" secondAttribute="bottom" id="be7-IE-kET"/>
-                                <constraint firstItem="KzO-LS-Qd5" firstAttribute="leading" secondItem="sHN-Ue-wl8" secondAttribute="leading" constant="16" id="c7y-Sc-JLA"/>
                             </constraints>
                         </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KzO-LS-Qd5">
+                            <rect key="frame" x="16" y="20" width="60" height="60"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="bAh-Ah-HAh"/>
+                                <constraint firstAttribute="width" constant="60" id="jue-JM-NTt"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="arrow.uturn.backward" catalog="system">
+                                <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="backButton:" destination="-1" eventType="touchUpInside" id="3gj-YY-Q4B"/>
+                            </connections>
+                        </button>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="o6X-Q8-bSG">
                             <rect key="frame" x="16" y="213.00000000000003" width="361" height="366.66666666666674"/>
                             <subviews>
@@ -334,9 +332,11 @@
                     <constraints>
                         <constraint firstItem="o6X-Q8-bSG" firstAttribute="leading" secondItem="cBs-H5-VIK" secondAttribute="leading" constant="16" id="0y1-JQ-wFR"/>
                         <constraint firstAttribute="trailing" secondItem="o6X-Q8-bSG" secondAttribute="trailing" constant="16" id="CUm-gG-ocA"/>
+                        <constraint firstItem="KzO-LS-Qd5" firstAttribute="top" secondItem="cBs-H5-VIK" secondAttribute="top" constant="20" id="DMH-bh-Z88"/>
                         <constraint firstItem="sHN-Ue-wl8" firstAttribute="top" secondItem="cBs-H5-VIK" secondAttribute="top" id="R7X-yY-2K7"/>
                         <constraint firstItem="sHN-Ue-wl8" firstAttribute="height" secondItem="cBs-H5-VIK" secondAttribute="height" multiplier="0.275822" id="UtZ-zC-Z2g"/>
                         <constraint firstAttribute="trailing" secondItem="sHN-Ue-wl8" secondAttribute="trailing" id="eNi-G2-5JX"/>
+                        <constraint firstItem="KzO-LS-Qd5" firstAttribute="leading" secondItem="cBs-H5-VIK" secondAttribute="leading" constant="16" id="f1I-4E-GQY"/>
                         <constraint firstItem="sHN-Ue-wl8" firstAttribute="width" secondItem="cBs-H5-VIK" secondAttribute="width" id="hR7-Kx-qGi"/>
                         <constraint firstItem="sHN-Ue-wl8" firstAttribute="leading" secondItem="cBs-H5-VIK" secondAttribute="leading" id="k78-CH-m79"/>
                         <constraint firstAttribute="bottom" secondItem="o6X-Q8-bSG" secondAttribute="bottom" id="oxV-HP-VvI"/>
@@ -396,13 +396,13 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGrayColor">
-            <color red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemIndigoColor">
-            <color red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

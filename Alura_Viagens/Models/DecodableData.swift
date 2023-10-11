@@ -8,9 +8,9 @@
 import Foundation
 
 func getSessaoDeViagens() -> [ViagemViewModel] {
-    let teste: [ViagemViewModel]? = load("server-response.json")
+    let teste: [ViagemViewModel]? = load(UsefulStrings.nameOfMock)
     guard let viagens = teste else {
-        fatalError("Server Response Error!")
+        fatalError(UsefulStrings.errorServerResponse)
     }
     return viagens
 }
@@ -20,23 +20,23 @@ func load(_ filename: String) -> [ViagemViewModel]? {
     
     guard let file = Bundle.main.url(forResource: filename, withExtension: nil)
         else {
-            fatalError("Couldn't find \(filename) in main bundle.")
+        fatalError(UsefulStrings.errorCouldntFindFile(filename))
     }
     
     do {
         data = try Data(contentsOf: file)
     } catch {
-        fatalError("Couldn't load \(filename) from main bundle:\n\(error)")
+        fatalError(UsefulStrings.errorCouldntLoadFileFromMainBundle(filename, error.localizedDescription))
     }
     
     do {
         
         guard let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else {
-            fatalError("error to read json dictionary")
+            fatalError(UsefulStrings.errorToReadJsonDictionary)
         }
         
         guard let listaDeViagens = json["viagens"] as? [String: Any] else {
-            fatalError("error to read travel list")
+            fatalError(UsefulStrings.errorToReadTravelList)
         }
         
         guard let jsonData = TiposDeViagens.jsonToData(listaDeViagens) else { return nil }
@@ -64,6 +64,6 @@ func load(_ filename: String) -> [ViagemViewModel]? {
         
         return listaViagemViewModel
     } catch {
-        fatalError("Couldn't parse")
+        fatalError(UsefulStrings.errorCouldntParse)
     }
 }
