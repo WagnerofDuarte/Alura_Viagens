@@ -37,6 +37,7 @@ class DetailsCoordinator: Coordinator {
     }
 }
 
+//MARK: DetalhesViewControllerDelegate
 extension DetailsCoordinator: DetalhesViewControllerDelegate {
     func detalhesViewControllerBackButtonDidTap(_: DetalhesViewController) {
         self.end()

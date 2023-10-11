@@ -39,6 +39,7 @@ class MainCoordinator: Coordinator {
     func end() {}
 }
 
+//MARK: HomeViewControllerDelegate
 extension MainCoordinator: HomeViewControllerDelegate {
     
     func homeViewControllerDidTap(_: HomeViewController, viagem: Viagem) {

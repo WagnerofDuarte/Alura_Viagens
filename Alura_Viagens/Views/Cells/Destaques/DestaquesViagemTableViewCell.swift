@@ -12,6 +12,7 @@ protocol DestaquesViagemTableViewCellDelegate: AnyObject {
     func destaquesViagemTableViewCellDidTap(_: DestaquesViagemTableViewCell, viagem: Viagem)
 }
 
+//MARK: Class Definition
 class DestaquesViagemTableViewCell: UITableViewCell {
     
     //MARK: - Atributes
@@ -29,7 +30,7 @@ class DestaquesViagemTableViewCell: UITableViewCell {
     @IBOutlet weak var statusCancelamentoViagemLabel: UILabel!
     
     //MARK: - Layout Configuration
-    func configuraCelula(_ viagem: Viagem?, delegate: DestaquesViagemTableViewCellDelegate?) {
+    func configureDestaquesViagensTableViewCell(_ viagem: Viagem?, delegate: DestaquesViagemTableViewCellDelegate?) {
         
         self.delegate = delegate
         self.viagem = viagem
@@ -57,6 +58,7 @@ class DestaquesViagemTableViewCell: UITableViewCell {
         
     }
     
+    //MARK: Action Button
     @objc func viagemDestaqueCellTapped(_ sender: UITapGestureRecognizer) {
         guard let viagem = viagem else { return }
         delegate?.destaquesViagemTableViewCellDidTap(self, viagem: viagem)

@@ -19,7 +19,7 @@ class HomeTableController: NSObject{
     weak var delegate: HomeTableControllerDelegate?
     let viagens: [ViagemViewModel]
     
-    //MARK: Inicializer
+    //MARK: Initializer
     init(viagens: [ViagemViewModel], delegate: HomeTableControllerDelegate?) {
         self.delegate = delegate
         self.viagens = viagens
@@ -31,10 +31,9 @@ class HomeTableController: NSObject{
         tableView.dataSource = self
         tableView.register(UINib(nibName: "DestaquesViagemTableViewCell", bundle: nil),
                                   forCellReuseIdentifier: "DestaquesViagemTableViewCell")
-        tableView.register(UINib(nibName: "HomeCollectionController", bundle: nil),
-                                  forCellReuseIdentifier: "HomeCollectionController")
+        tableView.register(UINib(nibName: "OfertasViagensTableViewCell", bundle: nil),
+                                  forCellReuseIdentifier: "OfertasViagensTableViewCell")
     }
-    
 }
 
 //MARK: UITableViewDataSource
@@ -58,19 +57,17 @@ extension HomeTableController: UITableViewDataSource {
             guard let celulaDestaques = tableView.dequeueReusableCell(withIdentifier: "DestaquesViagemTableViewCell") as? DestaquesViagemTableViewCell else {
                 fatalError("error to create destaques cell")
             }
-            celulaDestaques.configuraCelula(viagens.viagens[indexPath.row], delegate: self)
+            celulaDestaques.configureDestaquesViagensTableViewCell(viagens.viagens[indexPath.row], delegate: self)
             
             return celulaDestaques
             
-        case .ofertas: // Criar uma collection view para armazenar cada celula de ofertas
+        case .ofertas:
             
-            print(viagens.viagens)
-            
-            guard let celulaOfertas = tableView.dequeueReusableCell(withIdentifier: "HomeCollectionController") as? HomeCollectionController else {
+            guard let celulaOfertas = tableView.dequeueReusableCell(withIdentifier: "OfertasViagensTableViewCell") as? OfertasViagensTableViewCell else {
                 fatalError("error to create oferta cell")
             }
-            celulaOfertas.configure(delegate: self, viagens: viagens.viagens)
-            
+            celulaOfertas.configureOfertasViagensTableViewCell(self, viagens: viagens.viagens)
+    
             return celulaOfertas
             
         case .internacionais:
@@ -96,27 +93,15 @@ extension HomeTableController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
         if section == 0 {
             return 300
-        } else {
-            return 0
         }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone ? 400 : 475
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        switch indexPath.section {
-        case 0: //Destaques
-            print(viagens)
-        case 1: //Ofertas
-            print("Ofertas")
-        default:
-            print("Nada")
-        }
     }
 }
 
@@ -127,8 +112,9 @@ extension HomeTableController: DestaquesViagemTableViewCellDelegate {
     }
 }
 
-extension HomeTableController: HomeCollectionControllerDelegate {
-    func homeCollectionControllerDidTap(_: HomeCollectionController, viagem: Viagem) {
+//MARK: HomeCollectionControllerDelegate
+extension HomeTableController: OfertasViagensTableViewCellDelegate {
+    func ofertasViagensTableViewCellDidTap(_: OfertasViagensTableViewCell, viagem: Viagem) {
         delegate?.homeTableControllerDidTap(self, viagem: viagem)
     }
 }

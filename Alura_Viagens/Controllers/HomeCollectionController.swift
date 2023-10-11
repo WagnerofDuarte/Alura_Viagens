@@ -12,29 +12,29 @@ protocol HomeCollectionControllerDelegate: AnyObject {
     func homeCollectionControllerDidTap(_: HomeCollectionController, viagem: Viagem)
 }
 
-class HomeCollectionController: UITableViewCell {
+//MARK: Class Definition
+class HomeCollectionController: NSObject {
     
     //MARK: Atributes
     weak var delegate: HomeCollectionControllerDelegate?
     var viagens = [Viagem]()
     
-    //MARK: IBOutlets
-    @IBOutlet weak var collectionView: UICollectionView!
-    
     //MARK: Initializer
-    func configure(delegate: HomeCollectionControllerDelegate?, viagens: [Viagem]) {
+    init(viagens: [Viagem], delegate: HomeCollectionControllerDelegate?) {
         self.delegate = delegate
         self.viagens = viagens
-        collectionView.register(OfertasViagensCollectionViewCell.nib(), forCellWithReuseIdentifier: OfertasViagensCollectionViewCell.identifier)
+    }
+    
+    //MARK: CollectionView setUp
+    func setUpViagensCollectionView(collectionView: UICollectionView) {
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.register(OfertasViagensCollectionViewCell.nib(),
+                                forCellWithReuseIdentifier: OfertasViagensCollectionViewCell.identifier)
     }
 }
 
-extension HomeCollectionController: UICollectionViewDelegate {
-    
-}
-
+//MARK: UICollectionViewDataSource
 extension HomeCollectionController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -48,6 +48,12 @@ extension HomeCollectionController: UICollectionViewDataSource {
     }
 }
 
+//MARK: UICollectionViewDelegate
+extension HomeCollectionController: UICollectionViewDelegate {
+    
+}
+
+//MARK: UICollectionViewDelegateFlowLayout
 extension HomeCollectionController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -55,6 +61,7 @@ extension HomeCollectionController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+//MARK: OfertasViagensCollectionViewCellDelegate
 extension HomeCollectionController: OfertasViagensCollectionViewCellDelegate {
     func ofertasViagemCollectionViewCellDidTap(_: OfertasViagensCollectionViewCell, viagem: Viagem) {
         delegate?.homeCollectionControllerDidTap(self, viagem: viagem)

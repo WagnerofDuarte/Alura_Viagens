@@ -7,6 +7,7 @@
 
 import UIKit
 
+//MARK: Class Definition
 class HomeTableViewHeader: UIView {
 
     // MARK: - IBOutlets

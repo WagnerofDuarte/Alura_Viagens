@@ -27,6 +27,8 @@
 		E61512292AA65D9D0076CA05 /* ViagemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61512282AA65D9D0076CA05 /* ViagemViewModel.swift */; };
 		E615122B2AA65E840076CA05 /* ViagemDestaqueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E615122A2AA65E840076CA05 /* ViagemDestaqueViewModel.swift */; };
 		E61512362AA762690076CA05 /* ViagemOfertaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61512352AA762690076CA05 /* ViagemOfertaViewModel.swift */; };
+		E6697F632AD6F04500F37048 /* OfertasViagensTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6697F612AD6F04500F37048 /* OfertasViagensTableViewCell.swift */; };
+		E6697F642AD6F04500F37048 /* OfertasViagensTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6697F622AD6F04500F37048 /* OfertasViagensTableViewCell.xib */; };
 		E6E8A9FA2AA92A9400828EC7 /* DetalhesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E8A9F82AA92A9400828EC7 /* DetalhesViewController.swift */; };
 		E6E8A9FB2AA92A9400828EC7 /* DetalhesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6E8A9F92AA92A9400828EC7 /* DetalhesViewController.xib */; };
 		E6F589452ABCBA5400B52849 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F589442ABCBA5400B52849 /* UIView+Extension.swift */; };
@@ -60,6 +62,8 @@
 		E61512282AA65D9D0076CA05 /* ViagemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViagemViewModel.swift; sourceTree = "<group>"; };
 		E615122A2AA65E840076CA05 /* ViagemDestaqueViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViagemDestaqueViewModel.swift; sourceTree = "<group>"; };
 		E61512352AA762690076CA05 /* ViagemOfertaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViagemOfertaViewModel.swift; sourceTree = "<group>"; };
+		E6697F612AD6F04500F37048 /* OfertasViagensTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfertasViagensTableViewCell.swift; sourceTree = "<group>"; };
+		E6697F622AD6F04500F37048 /* OfertasViagensTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OfertasViagensTableViewCell.xib; sourceTree = "<group>"; };
 		E6E8A9F82AA92A9400828EC7 /* DetalhesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalhesViewController.swift; sourceTree = "<group>"; };
 		E6E8A9F92AA92A9400828EC7 /* DetalhesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetalhesViewController.xib; sourceTree = "<group>"; };
 		E6F589442ABCBA5400B52849 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -223,6 +227,8 @@
 				B79A78C62AD5B5C6000E2586 /* OfertasViagensCollectionViewCell.swift */,
 				B79A78C72AD5B5C6000E2586 /* OfertasViagensCollectionViewCell.xib */,
 				B743BE492AD5E2A700C20045 /* HomeCollectionController.xib */,
+				E6697F612AD6F04500F37048 /* OfertasViagensTableViewCell.swift */,
+				E6697F622AD6F04500F37048 /* OfertasViagensTableViewCell.xib */,
 			);
 			path = Oferta;
 			sourceTree = "<group>";
@@ -305,6 +311,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6697F642AD6F04500F37048 /* OfertasViagensTableViewCell.xib in Resources */,
 				E61512092AA615440076CA05 /* LaunchScreen.storyboard in Resources */,
 				E61512212AA65CF80076CA05 /* server-response.json in Resources */,
 				E61512112AA619860076CA05 /* HomeTableViewHeader.xib in Resources */,
@@ -328,6 +335,7 @@
 				E6E8A9FA2AA92A9400828EC7 /* DetalhesViewController.swift in Sources */,
 				E61512272AA65D290076CA05 /* Viagem.swift in Sources */,
 				B743BE4A2AD5E2A700C20045 /* HomeCollectionController.swift in Sources */,
+				E6697F632AD6F04500F37048 /* OfertasViagensTableViewCell.swift in Sources */,
 				E6F589452ABCBA5400B52849 /* UIView+Extension.swift in Sources */,
 				E6F5894E2ABCC38C00B52849 /* HomeViewController.swift in Sources */,
 				B79A78C82AD5B5C6000E2586 /* OfertasViagensCollectionViewCell.swift in Sources */,

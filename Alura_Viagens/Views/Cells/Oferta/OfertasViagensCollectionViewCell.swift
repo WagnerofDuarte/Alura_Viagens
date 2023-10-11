@@ -7,10 +7,12 @@
 
 import UIKit
 
+//MARK: OfertasViagensCollectionViewCellDelegate
 protocol OfertasViagensCollectionViewCellDelegate: AnyObject{
     func ofertasViagemCollectionViewCellDidTap(_: OfertasViagensCollectionViewCell, viagem: Viagem)
 }
 
+//MARK: Class Definition
 class OfertasViagensCollectionViewCell: UICollectionViewCell {
     
     //MARK: - Atributes
@@ -58,6 +60,7 @@ class OfertasViagensCollectionViewCell: UICollectionViewCell {
         
     }
     
+    //MARK: Action Button
     @objc func viagemOfertaCellTapped(_ sender: UITapGestureRecognizer) {
         guard let viagem = viagem else { return }
         delegate?.ofertasViagemCollectionViewCellDidTap(self, viagem: viagem)

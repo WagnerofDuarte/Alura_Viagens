@@ -7,10 +7,12 @@
 
 import UIKit
 
+//MARK: DetalhesViewControllerDelegate
 protocol DetalhesViewControllerDelegate {
     func detalhesViewControllerBackButtonDidTap(_: DetalhesViewController)
 }
 
+//MARK: Class Definition
 class DetalhesViewController: UIViewController {
     
     //MARK: - Atributos
@@ -66,6 +68,4 @@ class DetalhesViewController: UIViewController {
     @IBAction func continueButton(_ sender: UIButton) {
         // Vai pra tela de comprar
     }
-    
-    
 }

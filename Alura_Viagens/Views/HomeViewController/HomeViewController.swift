@@ -9,16 +9,17 @@
 
 import UIKit
 
+//MARK: HomeViewControllerDelegate
 protocol HomeViewControllerDelegate: AnyObject {
     func homeViewControllerDidTap(_: HomeViewController, viagem: Viagem)
 }
 
+//MARK: Class Definition
 class HomeViewController: UIViewController {
    
     //MARK: Atributtes
     var delegate: HomeViewControllerDelegate?
     var tableController: HomeTableController?
-    
     let viagens: [ViagemViewModel] = getSessaoDeViagens()
     
     //MARK: IBOutlets
@@ -31,12 +32,12 @@ class HomeViewController: UIViewController {
     }
     
     func configureHomeViewController(delegate: HomeViewControllerDelegate?){
-        self.tableController = HomeTableController(viagens: viagens, delegate: self)
         self.delegate = delegate
-        
+        self.tableController = HomeTableController(viagens: viagens, delegate: self)
     }
 }
 
+//MARK: HomeTableControllerDelegate
 extension HomeViewController: HomeTableControllerDelegate {
     func homeTableControllerDidTap(_: HomeTableController, viagem: Viagem) {
         delegate?.homeViewControllerDidTap(self, viagem: viagem)
