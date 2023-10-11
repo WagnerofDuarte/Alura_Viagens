@@ -84,8 +84,8 @@
 		B7063BF72AD47D480099B504 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B743BE482AD5E2A700C20045 /* HomeCollectionController.swift */,
 				B71BF1092ACF0481007572A0 /* HomeTableController.swift */,
+				B743BE482AD5E2A700C20045 /* HomeCollectionController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

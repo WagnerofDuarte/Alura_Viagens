@@ -58,18 +58,6 @@
             },
             {
                 "id": 6,
-                "titulo": "TESTE",
-                "subtitulo": "Aéreo + Hotel c/ café da manhã",
-                "asset": "sao-luis-brasil",
-                "diaria": 5,
-                "hospedes": 1,
-                "precoSemDesconto": 1.078,
-                "preco": 809,
-                "cancelamento": "Cancelamento Grátis!"
-            }
-        ],
-        "internacionais": [{
-                "id": 7,
                 "titulo": "Cancún All inclusive",
                 "subtitulo": "Aéreo + Hotel All Inclusive",
                 "asset": "cancun-internacional",
@@ -80,7 +68,30 @@
                 "cancelamento": "Cancelamento Grátis!"
             },
             {
+                "id": 7,
+                "titulo": "Pacote Santiago",
+                "subtitulo": "Aéreo + Hospedagem",
+                "asset": "santiago-internacional",
+                "diaria": 3,
+                "hospedes": 1,
+                "precoSemDesconto": 1.895,
+                "preco": 1.327,
+                "cancelamento": "Cancelamento Grátis!"
+            }
+        ],
+        "internacionais": [{
                 "id": 8,
+                "titulo": "Cancún All inclusive",
+                "subtitulo": "Aéreo + Hotel All Inclusive",
+                "asset": "cancun-internacional",
+                "diaria": 5,
+                "hospedes": 1,
+                "precoSemDesconto": 5.816,
+                "preco": 3.199,
+                "cancelamento": "Cancelamento Grátis!"
+            },
+            {
+                "id": 9,
                 "titulo": "Pacote Santiago",
                 "subtitulo": "Aéreo + Hospedagem",
                 "asset": "santiago-internacional",
