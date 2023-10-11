@@ -29,10 +29,10 @@ class HomeTableController: NSObject{
     func setUpViagensTableView(tableView: UITableView){
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UINib(nibName: "DestaquesViagemTableViewCell", bundle: nil),
-                                  forCellReuseIdentifier: "DestaquesViagemTableViewCell")
-        tableView.register(UINib(nibName: "OfertasViagensTableViewCell", bundle: nil),
-                                  forCellReuseIdentifier: "OfertasViagensTableViewCell")
+        tableView.register(UINib(nibName: DestaquesViagemTableViewCell.identifier, bundle: nil),
+                                  forCellReuseIdentifier: DestaquesViagemTableViewCell.identifier)
+        tableView.register(UINib(nibName: OfertasViagensTableViewCell.identifier, bundle: nil),
+                                  forCellReuseIdentifier: OfertasViagensTableViewCell.identifier)
     }
 }
 
@@ -54,8 +54,8 @@ extension HomeTableController: UITableViewDataSource {
         switch viagens.tipo {
         case .destaques:
             
-            guard let celulaDestaques = tableView.dequeueReusableCell(withIdentifier: "DestaquesViagemTableViewCell") as? DestaquesViagemTableViewCell else {
-                fatalError("error to create destaques cell")
+            guard let celulaDestaques = tableView.dequeueReusableCell(withIdentifier: DestaquesViagemTableViewCell.identifier) as? DestaquesViagemTableViewCell else {
+                fatalError(UsefulStrings.errorToLoadTableViewCell)
             }
             celulaDestaques.configureDestaquesViagensTableViewCell(viagens.viagens[indexPath.row], delegate: self)
             
@@ -63,8 +63,8 @@ extension HomeTableController: UITableViewDataSource {
             
         case .ofertas:
             
-            guard let celulaOfertas = tableView.dequeueReusableCell(withIdentifier: "OfertasViagensTableViewCell") as? OfertasViagensTableViewCell else {
-                fatalError("error to create oferta cell")
+            guard let celulaOfertas = tableView.dequeueReusableCell(withIdentifier: OfertasViagensTableViewCell.identifier) as? OfertasViagensTableViewCell else {
+                fatalError(UsefulStrings.errorToLoadTableViewCell)
             }
             celulaOfertas.configureOfertasViagensTableViewCell(self, viagens: viagens.viagens)
     
@@ -84,7 +84,7 @@ extension HomeTableController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0 {
             
-            let headerView = Bundle.main.loadNibNamed("HomeTableViewHeader", owner: self, options: nil)?.first as? HomeTableViewHeader
+            let headerView = Bundle.main.loadNibNamed(HomeTableViewHeader.identifier, owner: self, options: nil)?.first as? HomeTableViewHeader
             headerView?.configuraHeader()
             
             return headerView

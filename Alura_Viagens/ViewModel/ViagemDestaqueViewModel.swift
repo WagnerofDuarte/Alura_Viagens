@@ -12,7 +12,7 @@ class ViagemDestaqueViewModel: ViagemViewModel {
     //MARK: - Atributes
     
     var tituloSessao: String {
-        return "Destaques"
+        return UsefulStrings.destaques
     }
     
     var tipo: ViagemViewModelType {

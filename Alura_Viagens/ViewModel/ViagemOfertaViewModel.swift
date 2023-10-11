@@ -12,7 +12,7 @@ class ViagemOfertaViewModel: ViagemViewModel {
     //MARK: - Atributes
     
     var tituloSessao: String {
-        return "Ofertas"
+        return UsefulStrings.ofertas
     }
     
     var tipo: ViagemViewModelType {

@@ -15,6 +15,13 @@ protocol OfertasViagensTableViewCellDelegate: AnyObject {
 //MARK: Class Definition
 class OfertasViagensTableViewCell: UITableViewCell {
     
+    //MARK: - IDs
+    static let identifier = UsefulStrings.ofertasViagensTableViewCellIdentifier
+    static func nib() -> UINib {
+        return UINib(nibName: UsefulStrings.ofertasViagensTableViewCellIdentifier,
+                     bundle: nil)
+    }
+    
     //MARK: - Atributes
     var collectionViewController: HomeCollectionController?
     var delegate: OfertasViagensTableViewCellDelegate?
@@ -30,7 +37,7 @@ class OfertasViagensTableViewCell: UITableViewCell {
     }
 }
 
-//MARK: Extension - HomeCollectionController
+//MARK: Extension - HomeCollectionControllerDelegate
 extension OfertasViagensTableViewCell: HomeCollectionControllerDelegate {
     func homeCollectionControllerDidTap(_: HomeCollectionController, viagem: Viagem) {
         delegate?.ofertasViagensTableViewCellDidTap(self, viagem: viagem)

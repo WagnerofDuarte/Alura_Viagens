@@ -15,6 +15,13 @@ protocol OfertasViagensCollectionViewCellDelegate: AnyObject{
 //MARK: Class Definition
 class OfertasViagensCollectionViewCell: UICollectionViewCell {
     
+    //MARK: - IDs
+    static let identifier = UsefulStrings.ofertasViagensCollectionViewCellIdentifier
+    static func nib() -> UINib {
+        return UINib(nibName: UsefulStrings.ofertasViagensCollectionViewCellIdentifier,
+                     bundle: nil)
+    }
+    
     //MARK: - Atributes
     private var viagem: Viagem?
     weak var delegate: OfertasViagensCollectionViewCellDelegate?
@@ -27,18 +34,6 @@ class OfertasViagensCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var precoLabel: UILabel!
     @IBOutlet weak var fundoView: UIView!
     
-    //MARK: - IDs
-    static let identifier = "OfertasViagensCollectionViewCell"
-    static func nib() -> UINib {
-        return UINib(nibName: "OfertasViagensCollectionViewCell", bundle: nil)
-    }
-    
-    //MARK: Initializer
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
     // MARK: - Layout Methods
     func configuraCelula(_ viagem: Viagem?, delegate: OfertasViagensCollectionViewCellDelegate?){
         
@@ -50,14 +45,13 @@ class OfertasViagensCollectionViewCell: UICollectionViewCell {
         viagemImage.image = UIImage(named: viagem.asset)
         tituloViagemLabel.text = viagem.titulo
         subtituloViagemLabel.text = viagem.subtitulo
-        precoSemDescontoLabel.text = "Á Partir de R$ \(viagem.precoSemDesconto)"
-        precoLabel.text = "R$ \(viagem.preco)"
+        precoSemDescontoLabel.text = UsefulStrings.appendMoneySignToDouble(viagem.precoSemDesconto, startingAtText: true)
+        precoLabel.text = UsefulStrings.appendMoneySignToDouble(viagem.preco, startingAtText: false)
     
         fundoView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viagemOfertaCellTapped(_:))))
         DispatchQueue.main.async {
             self.fundoView.addSombra()
         }
-        
     }
     
     //MARK: Action Button

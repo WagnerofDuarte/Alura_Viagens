@@ -9,6 +9,13 @@ import UIKit
 
 //MARK: Class Definition
 class HomeTableViewHeader: UIView {
+    
+    //MARK: - IDs
+    static let identifier = UsefulStrings.homeTableViewHeaderIdentifier
+    static func nib() -> UINib {
+        return UINib(nibName: UsefulStrings.homeTableViewHeaderIdentifier,
+                     bundle: nil)
+    }
 
     // MARK: - IBOutlets
     @IBOutlet weak var tituloLabel: UILabel!

@@ -15,6 +15,13 @@ protocol DestaquesViagemTableViewCellDelegate: AnyObject {
 //MARK: Class Definition
 class DestaquesViagemTableViewCell: UITableViewCell {
     
+    //MARK: - IDs
+    static let identifier = UsefulStrings.destaquesViagemTableViewCellIdentifier
+    static func nib() -> UINib {
+        return UINib(nibName: UsefulStrings.destaquesViagemTableViewCellIdentifier,
+                     bundle: nil)
+    }
+    
     //MARK: - Atributes
     var viagem: Viagem?
     weak var delegate: DestaquesViagemTableViewCellDelegate?
@@ -35,21 +42,15 @@ class DestaquesViagemTableViewCell: UITableViewCell {
         self.delegate = delegate
         self.viagem = viagem
         
-        viagemImage.image = UIImage(named: viagem?.asset ?? "")
-        tituloViagemLabel.text = viagem?.titulo ?? ""
-        subtituloViagemLabel.text = viagem?.subtitulo ?? ""
-        precoViagemLabel.text = "R$ \(viagem?.preco ?? 0)"
+        guard let viagem = self.viagem else { return }
         
-        let atributoString: NSMutableAttributedString = NSMutableAttributedString(string: "R$ \(viagem?.precoSemDesconto ?? 0)")
-        atributoString.addAttribute(NSAttributedString.Key.strikethroughStyle,value: 1, range: NSMakeRange(0, atributoString.length))
-        precoSemDescontoLabel.attributedText = atributoString
-        
-        if let numeroDeDias = viagem?.diaria, let numeroDeHospedes = viagem?.hospedes {
-            let diarias = numeroDeDias == 1 ? "Diária" : "Diárias"
-            let hospedes = numeroDeHospedes == 1 ? "Pessoa" : "Pessoas"
-            diariaViagemLabel.text = "\(numeroDeDias) \(diarias) - \(numeroDeHospedes) \(hospedes) "
-        }
-        
+        viagemImage.image = UIImage(named: viagem.asset)
+        tituloViagemLabel.text = viagem.titulo
+        subtituloViagemLabel.text = viagem.subtitulo
+        precoViagemLabel.text = UsefulStrings.appendMoneySignToDouble(viagem.preco, startingAtText: false)
+        precoSemDescontoLabel.attributedText = UsefulStrings.addStrikeThroughToDouble(viagem.precoSemDesconto)
+        diariaViagemLabel.text = UsefulStrings.numberOfGuestsAndDaysString(days: viagem.diaria, guests: viagem.hospedes)
+                
         backgroundViewCell.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viagemDestaqueCellTapped(_:))))
             
         DispatchQueue.main.async {

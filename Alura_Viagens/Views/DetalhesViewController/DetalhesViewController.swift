@@ -44,20 +44,15 @@ class DetalhesViewController: UIViewController {
     //MARK: - Layout Configuration
     func configuraView(){
         
-        viagemImage.image = UIImage(named: viagem?.asset ?? "")
-        tituloViagemLabel.text = viagem?.titulo ?? ""
-        subtituloViagemLabel.text = viagem?.subtitulo ?? ""
-        precoViagemLabel.text = "R$ \(viagem?.preco ?? 0)"
+        guard let viagem = self.viagem else { return }
         
-        let atributoString: NSMutableAttributedString = NSMutableAttributedString(string: "R$ \(viagem?.precoSemDesconto ?? 0)")
-        atributoString.addAttribute(NSAttributedString.Key.strikethroughStyle,value: 1, range: NSMakeRange(0, atributoString.length))
-        precoSemDescontoViagemLabel.attributedText = atributoString
+        viagemImage.image = UIImage(named: viagem.asset)
+        tituloViagemLabel.text = viagem.titulo
+        subtituloViagemLabel.text = viagem.subtitulo
+        precoViagemLabel.text = UsefulStrings.appendMoneySignToDouble(viagem.preco, startingAtText: false)
+        precoSemDescontoViagemLabel.attributedText = UsefulStrings.addStrikeThroughToDouble(viagem.precoSemDesconto)
+        diariaViagemLabl.text = UsefulStrings.numberOfGuestsAndDaysString(days: viagem.diaria, guests: viagem.hospedes)
         
-        if let numeroDeDias = viagem?.diaria, let numeroDeHospedes = viagem? .hospedes {
-            let diarias = numeroDeDias == 1 ? "Diária" : "Diárias"
-            let hospedes = numeroDeHospedes == 1 ? "Pessoa" : "Pessoas"
-            diariaViagemLabl.text = "\(numeroDeDias) \(diarias) - \(numeroDeHospedes) \(hospedes) "
-        }
     }
     
     //MARK: - Actions
