@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "3AD0643D-DCE5-44AF-8DAF-1C861D21ED50"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "40D8E200-F2BB-4A4C-84AC-7B8202CAB5F7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Alura_Viagens/Coordinators/MainCoordinator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "getMemes()"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "40D8E200-F2BB-4A4C-84AC-7B8202CAB5F7 - 37440dee1b653a61"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for Alura_Viagens.getMemes() async throws -&gt; Alura_Viagens.ResponseData"
+                  moduleName = "Alura_Viagens"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wagnerduarte/Desktop/Curso%20iOS/Alura/Alura_Viagens/Alura_Viagens/Coordinators/MainCoordinator.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "564">
+               </Location>
+               <Location
+                  uuid = "40D8E200-F2BB-4A4C-84AC-7B8202CAB5F7 - 37440dee1b653a61"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for Alura_Viagens.getMemes() async throws -&gt; Alura_Viagens.ResponseData"
+                  moduleName = "Alura_Viagens"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wagnerduarte/Desktop/Curso%20iOS/Alura/Alura_Viagens/Alura_Viagens/Coordinators/MainCoordinator.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "532">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

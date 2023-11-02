@@ -47,6 +47,45 @@ extension MainCoordinator: HomeViewControllerDelegate {
                                                     navigationController: self.navigationController,
                                                     viagem: viagem,
                                                     parentCoordinators: self)
+        Task {
+            do {
+                var memes = [Memes]()
+                memes = try await getMemes().data.memes
+                print(memes)
+            } catch MemesErrors.invalidData {
+                print("Invalid Data")
+            } catch MemesErrors.invalidResponse {
+                print("Invalid Response")
+            } catch MemesErrors.invalidURL {
+                print(print("Invalid URL"))
+            } catch {
+                print("Unespected Error")
+            }
+        }
         self.eventOccurred(with: .goToTripDetailsScreen, of: detailsCoordinator)
     }
+}
+
+func getMemes() async throws -> ResponseData {
+    
+    let endpoint = "https://api.imgflip.com/get_memes"
+    
+    guard let url = URL(string: endpoint) else {
+        throw MemesErrors.invalidURL
+    }
+    
+    let (data, response) = try await URLSession.shared.data(from: url)
+    
+    guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+        throw MemesErrors.invalidResponse
+    }
+    
+    do {
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        return try decoder.decode(ResponseData.self, from: data)
+    } catch {
+        throw MemesErrors.invalidData
+    }
+    
 }
