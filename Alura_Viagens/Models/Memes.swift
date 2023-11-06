@@ -9,7 +9,7 @@ import Foundation
 
 struct Memes: Codable {
     //MARK: Atributes
-    let id: Int
+    let id: String
     let name: String
     let url: String
 }

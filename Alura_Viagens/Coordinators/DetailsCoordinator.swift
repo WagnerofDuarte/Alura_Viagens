@@ -26,9 +26,23 @@ class DetailsCoordinator: Coordinator {
     func eventOccurred(with type: Event, of coordinator: Coordinator) {}
     
     func start() {
-        let vc = DetalhesViewController.instanciar(viagem, delegate: self)
+        Task {
+            var memes = [Memes]()
+            do {
+                memes = try await MemesAPI.getMemes()
+            } catch MemesErrors.invalidData {
+                print("Invalid Data")
+            } catch MemesErrors.invalidResponse {
+                print("Invalid Response")
+            } catch MemesErrors.invalidURL {
+                print(print("Invalid URL"))
+            } catch {
+                print("Unespected Error")
+            }
+            let vc = await DetalhesViewController.instanciar(viagem, memes: memes, delegate: self)
+            await navigationController.pushViewController(vc, animated: true)
+        }
         navigationController.isNavigationBarHidden = true
-        navigationController.pushViewController(vc, animated: true)
     }
     
     func end() {
